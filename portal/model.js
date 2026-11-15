@@ -2,7 +2,7 @@
  *
  * 1. Every catalog row is a real configuration with an official store price and a source link.
  * 2. If someone values exactly a catalog configuration, the verified price is used as-is.
- * 3. Otherwise the price is estimated from the closest verified configurations (k-nearest neighbours)
+ * 3. Otherwise the prices is estimated from the closest verified configurations (k-nearest neighbours)
  *    blended with a small ridge regression on the whole catalog.
  * 4. The US↔Germany price ratio is measured from configurations sold in both stores.
  * All internal prices are US dollars before sales tax.
