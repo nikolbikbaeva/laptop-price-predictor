@@ -1,0 +1,107 @@
+{% extends "_base.html.j2" %}
+{% block content %}
+<section id="summary">
+  <div class="metrics">
+    <div class="metric"><strong>{{ "%.3f"|format(sel.r2) }}</strong><span>test R² · {{ selected }}</span></div>
+    <div class="metric"><strong>{{ "{:,.0f}".format(sel.mae) }}</strong><span>average error (MAE) on the test set</span></div>
+    <div class="metric"><strong>{{ "%.1f"|format(sel.mape) }}%</strong><span>average error as % of price (MAPE)</span></div>
+    <div class="metric"><strong>{{ "%.2f"|format(unseen.r2) }}</strong><span>R² on laptop models never seen in training</span></div>
+  </div>
+  <div class="panel">
+    <h2>Summary</h2>
+    <p>We compared seven models on {{ "{:,}".format(meta.cleaning.rows_used) }} laptops. The model was chosen <strong>before</strong> looking at the test set, using cross-validation on the training data: <strong>{{ selected }}</strong> had the lowest validation RMSE. On the hidden test set it explains {{ "%.1f"|format(sel.r2 * 100) }}% of price differences, with an average error of {{ "{:,.0f}".format(sel.mae) }} — compared with {{ "{:,.0f}".format(baseline.mae) }} for the median baseline.</p>
+    <div class="note">The random test split contains other configurations of laptop models that also appear in training, which makes it easier. On completely unseen laptop models the R² is {{ "%.2f"|format(unseen.r2) }} (average error {{ "{:,.0f}".format(unseen.mae) }}). This is the more realistic number for a brand-new laptop.</div>
+  </div>
+</section>
+
+<section id="results" class="panel">
+  <h2>1. Results</h2>
+  <p class="intro">Sorted by validation RMSE (the selection rule). Click a column header to sort. The selected model is highlighted.</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th data-sort>Model</th><th data-sort>Family</th><th data-sort class="numeric">Validation RMSE</th><th data-sort class="numeric">Validation R²</th><th data-sort class="numeric">Test R²</th><th data-sort class="numeric">Test MAE</th><th data-sort class="numeric">Test RMSE</th><th data-sort class="numeric">Test MAPE</th></tr></thead>
+    <tbody>{% for r in test %}<tr{% if r.model == selected %} class="selected"{% endif %}>
+      <td>{{ r.model }}</td><td>{{ r.family }}</td>
+      <td class="numeric" data-v="{{ r.val_rmse }}">{{ "{:,.0f}".format(r.val_rmse) }}</td>
+      <td class="numeric" data-v="{{ r.val_r2 }}">{{ "%.3f"|format(r.val_r2) }}</td>
+      <td class="numeric" data-v="{{ r.r2 }}">{{ "%.3f"|format(r.r2) }}</td>
+      <td class="numeric" data-v="{{ r.mae }}">{{ "{:,.0f}".format(r.mae) }}</td>
+      <td class="numeric" data-v="{{ r.rmse }}">{{ "{:,.0f}".format(r.rmse) }}</td>
+      <td class="numeric" data-v="{{ r.mape }}">{{ "%.1f"|format(r.mape) }}%</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <div class="chart">{{ charts.r2 | safe }}</div>
+  <div class="chart">{{ charts.val | safe }}</div>
+  <p class="caption">Each box shows the spread of RMSE across the 5 validation folds. Short boxes = stable models. Tree ensembles are both the most accurate and the most stable.</p>
+  <p class="subtle">Download: <a href="../models/laptops/model_metrics.csv">model_metrics.csv</a> · <a href="../models/laptops/validation_metrics.csv">validation_metrics.csv</a> · <a href="../models/laptops/test_predictions.csv">test_predictions.csv</a></p>
+</section>
+
+<section id="errors" class="panel">
+  <h2>2. Where the model makes mistakes</h2>
+  <div class="chart">{{ charts.scatter | safe }}</div>
+  <p class="caption">Each dot is one test laptop. Dots on the dashed line are perfect predictions. Hover for the laptop name.</p>
+  <div class="chart">{{ charts.bands | safe }}</div>
+  <h3>The largest test errors</h3>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Laptop</th><th>CPU</th><th class="numeric">RAM</th><th class="numeric">SSD</th><th class="numeric">Actual</th><th class="numeric">Predicted</th><th class="numeric">Error</th></tr></thead>
+    <tbody>{% for r in worst %}<tr><td>{{ r.TypeName }}</td><td>{{ r.Cpu }}</td><td class="numeric">{{ r.Ram_GB|int }} GB</td><td class="numeric">{{ r.SSD|int }} GB</td><td class="numeric">{{ "{:,.0f}".format(r.actual_price) }}</td><td class="numeric">{{ "{:,.0f}".format(r.predicted_price) }}</td><td class="numeric">{{ "{:+,.0f}".format(r.error) }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="caption">Big misses are mostly rare, expensive configurations with few similar laptops in the training data.</p>
+</section>
+
+{% if charts.importance %}
+<section id="drivers" class="panel">
+  <h2>3. What matters most for the price</h2>
+  <p class="intro">{% for f in top_features %}<code>{{ f.feature }}</code> {{ "%.0f"|format(f.importance * 100) }}%{% if not loop.last %}, {% endif %}{% endfor %} — memory alone carries most of the signal, followed by storage and a dedicated graphics card.</p>
+  <div class="chart">{{ charts.importance | safe }}</div>
+  <p class="caption">Feature importance from the trees: how much each feature reduced the error during training. It shows what the model uses, not cause and effect.</p>
+</section>
+{% endif %}
+
+<section id="unseen" class="panel">
+  <h2>4. Check on unseen laptop models</h2>
+  <p>{{ unseen.method }}. Every fold hides whole laptop models (all their configurations), so the model must price laptops it has never seen.</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Evaluation</th><th class="numeric">R²</th><th class="numeric">MAE</th><th class="numeric">RMSE</th><th class="numeric">MAPE</th></tr></thead>
+    <tbody>
+      <tr><td>Random test set (20%)</td><td class="numeric">{{ "%.3f"|format(sel.r2) }}</td><td class="numeric">{{ "{:,.0f}".format(sel.mae) }}</td><td class="numeric">{{ "{:,.0f}".format(sel.rmse) }}</td><td class="numeric">{{ "%.1f"|format(sel.mape) }}%</td></tr>
+      <tr><td>Unseen laptop models (5 folds)</td><td class="numeric">{{ "%.3f"|format(unseen.r2) }}</td><td class="numeric">{{ "{:,.0f}".format(unseen.mae) }}</td><td class="numeric">{{ "{:,.0f}".format(unseen.rmse) }}</td><td class="numeric">{{ "%.1f"|format(unseen.mape) }}%</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="models" class="panel">
+  <h2>5. Model settings</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Model</th><th>Family</th><th>Idea in plain words</th><th>Settings</th></tr></thead>
+    <tbody>{% for name, info in model_info.items() %}<tr{% if name == selected %} class="selected"{% endif %}><td>{{ name }}</td><td>{{ info[0] }}</td><td>{{ info[1] }}</td><td>{{ info[2] }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+</section>
+
+<section id="method" class="panel">
+  <h2>6. Method</h2>
+  <ol>
+    <li><strong>Cleaning</strong> — {{ meta.cleaning.empty_rows_removed }} empty rows removed; {{ meta.cleaning.weight_zero }} rows with weight 0 kg and {{ meta.cleaning.storage_zero }} with 0 GB storage left out. Nothing is imputed.</li>
+    <li><strong>Features</strong> — {{ meta.features.numeric|length }} numeric columns, plus CPU tier, RTX class and RTX generation extracted from text, plus one-hot brand and CPU vendor: {{ meta.features.all_columns|length }} inputs in total.</li>
+    <li><strong>Target</strong> — {{ meta.target }}.</li>
+    <li><strong>Split</strong> — random {{ (meta.split.test_size * 100)|int }}% test set ({{ meta.split.test_rows }} laptops), random_state {{ meta.split.random_state }}. The test set is used once, after selection.</li>
+    <li><strong>Selection</strong> — {{ meta.selection_rule }}.</li>
+  </ol>
+  <h3>Metrics</h3>
+  <div class="table-scroll"><table><tbody>{% for m in metric_info %}<tr><td><strong>{{ m[0] }}</strong></td><td>{{ m[1] }}</td></tr>{% endfor %}</tbody></table></div>
+  <details><summary>Reproduce</summary>
+  <pre><code>python scripts/train_models.py
+python scripts/train_models.py --report-only
+python scripts/predict_prices.py --input models/laptops/example_laptops.csv --output reports/example_predictions.csv</code></pre>
+  <p class="subtle">Data SHA-256: <code>{{ meta.data_sha256 }}</code> · runtime {{ meta.runtime_seconds }} s</p></details>
+</section>
+
+<section id="limits" class="panel">
+  <h2>7. Limitations</h2>
+  <ul>
+    <li>Scores apply to this scraped dataset at one point in time, not to today's market or to used laptops.</li>
+    <li>The currency of the prices is not labelled; we treat it as USD.</li>
+    <li>Brands, CPUs and GPUs that are not in the data cannot be priced reliably.</li>
+    <li>Several rows are the same laptop with different memory or storage, so the random test score is optimistic — see the unseen-models check.</li>
+    <li>No hyper-parameter search was done; the settings are fixed and simple.</li>
+  </ul>
+</section>
+{% endblock %}

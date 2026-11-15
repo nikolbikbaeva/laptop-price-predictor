@@ -1,0 +1,18 @@
+# Local runtime, credentials, and editor state
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.vercel/
+
+# Generated scratch output
+output/
+outputs/
+*.log

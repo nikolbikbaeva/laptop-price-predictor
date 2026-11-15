@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f6fb">
+  <title>FairSpec — the fair price for every laptop</title>
+  <meta name="description" content="Know what your laptop is worth in a minute — or find your next one without paying a cent too much.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=37">
+  <script type="importmap">
+    { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    } }
+  </script>
+</head>
+<body data-view="home">
+
+<div class="aurora" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i></div>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar" id="nav">
+  <a class="logo" href="#home" aria-label="FairSpec">
+    <span class="logo-mark" aria-hidden="true"></span><span class="logo-word">FairSpec</span>
+  </a>
+  <div class="top-right">
+    <button class="pill-btn" id="prefsBtn" data-i18n-aria="prefs">
+      <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2.5 10h15M10 2.5c2.2 2.3 2.2 12.7 0 15M10 2.5c-2.2 2.3-2.2 12.7 0 15" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span id="prefsLabel">EN · $</span>
+    </button>
+    <div class="nav-account" id="navAccount"></div>
+  </div>
+</header>
+
+<!-- ============ DOCK (app-style navigation) ============ -->
+<nav class="dock" aria-label="Main">
+  <a href="#home" data-link="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z"/></svg><span data-i18n="dock_home">Home</span></a>
+  <a href="#sell" data-link="sell"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12.6 11.4 4.7a2 2 0 0 1 1.4-.6H19a1 1 0 0 1 1 1v6.2a2 2 0 0 1-.6 1.4l-7.9 7.9a1.5 1.5 0 0 1-2.1 0l-5.9-5.9a1.5 1.5 0 0 1 0-2.1z"/><circle cx="16" cy="8" r="1.4"/></svg><span data-i18n="dock_sell">Sell</span></a>
+  <a href="#buy" data-link="buy"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span data-i18n="dock_buy">Buy</span></a>
+  <a href="#ask" data-link="ask"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 13.6 8a3 3 0 0 0 1.9 1.9L20 11.5l-4.5 1.6a3 3 0 0 0-1.9 1.9L12 19.5l-1.6-4.5a3 3 0 0 0-1.9-1.9L4 11.5l4.5-1.6A3 3 0 0 0 10.4 8z"/></svg><span data-i18n="dock_ask">Assistant</span></a>
+  <a href="#you" data-link="you"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.5 7.5-5.5s6.3 1.9 7.5 5.5"/></svg><span data-i18n="dock_you">You</span><i class="dock-dot" id="dockDot" hidden></i></a>
+</nav>
+
+<main>
+<!-- ============ HOME ============ -->
+<section class="view" data-view="home">
+  <div class="stage">
+    <div class="stage-copy">
+      <p class="eyebrow" data-i18n="hero_eyebrow"></p>
+      <h1 class="display" data-i18n-html="hero_h1"></h1>
+      <p class="lede" data-i18n="hero_lede"></p>
+      <div class="cta-row">
+        <a class="btn btn-ink" href="#sell" data-i18n="cta_value"></a>
+        <a class="btn btn-glass" href="#ask"><span class="spark" aria-hidden="true"></span><span data-i18n="cta_ask"></span></a>
+      </div>
+      <ul class="promises">
+        <li><b data-i18n="pr1_b"></b><span data-i18n="pr1_s"></span></li>
+        <li><b data-i18n="pr2_b"></b><span data-i18n="pr2_s"></span></li>
+        <li><b data-i18n="pr3_b"></b><span data-i18n="pr3_s"></span></li>
+      </ul>
+    </div>
+
+    <div class="stage-3d" id="stage3d">
+      <canvas id="heroCanvas" aria-hidden="true"></canvas>
+      <!-- CSS fallback laptop, shown only if WebGL is unavailable -->
+      <div class="scene" id="scene" aria-hidden="true">
+        <div class="laptop" id="laptop">
+          <div class="lid"><div class="screen">
+            <div class="scr-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="scr-title">fairspec</span></div>
+            <p class="scr-model" id="scrModel">—</p>
+            <p class="scr-label" data-i18n="scr_label"></p>
+            <p class="scr-price" id="scrPrice">—</p>
+            <div class="scr-bars" id="scrBars"><div><span>CPU</span><i></i></div><div><span>GPU</span><i></i></div><div><span>RAM</span><i></i></div><div><span>SSD</span><i></i></div></div>
+            <p class="scr-badge" id="scrBadge"></p>
+          </div></div>
+          <div class="base"><div class="keys"></div><div class="pad"></div></div>
+        </div>
+      </div>
+      <div class="chip-float cf1"><span data-i18n="chip_ram"></span><b id="fc1">32 GB</b></div>
+      <div class="chip-float cf2"><span data-i18n="chip_gpu"></span><b id="fc2">RTX 5070</b></div>
+      <div class="chip-float cf3"><span data-i18n="chip_ssd"></span><b id="fc3">1 TB</b></div>
+    </div>
+  </div>
+
+  <section class="block">
+    <h2 class="block-title" data-i18n-html="intent_title"></h2>
+    <div class="bento">
+      <a class="tile tile-sell" href="#sell">
+        <span class="tile-k">01</span>
+        <h3 data-i18n="it_sell_h"></h3>
+        <p data-i18n="it_sell_p"></p>
+        <div class="tag-art" aria-hidden="true"><span class="tag-hole"></span><b id="artPrice">$1,240</b><small data-i18n="v_fair"></small></div>
+        <span class="tile-go" aria-hidden="true">→</span>
+      </a>
+      <a class="tile tile-buy" href="#buy">
+        <span class="tile-k">02</span>
+        <h3 data-i18n="it_buy_h"></h3>
+        <p data-i18n="it_buy_p"></p>
+        <div class="stack-art" aria-hidden="true"><i></i><i></i><i><b data-i18n="v_good"></b></i></div>
+        <span class="tile-go" aria-hidden="true">→</span>
+      </a>
+      <a class="tile tile-check" href="#ask" data-goal="check">
+        <span class="tile-k">03</span>
+        <h3 data-i18n="it_check_h"></h3>
+        <p data-i18n="it_check_p"></p>
+        <div class="seal-art" aria-hidden="true">✓</div>
+      </a>
+      <a class="tile tile-ask" href="#ask">
+        <span class="tile-k">04</span>
+        <h3 data-i18n="it_ask_h"></h3>
+        <p data-i18n="it_ask_p"></p>
+        <div class="bubble-art" aria-hidden="true"><i></i><i></i></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 class="block-title" data-i18n-html="life_title"></h2>
+    <div class="life-row" id="lifeRow">
+      <button class="life" data-use="study"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg><b data-i18n="use_study"></b><span data-i18n="life_study_p"></span></button>
+      <button class="life" data-use="office"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="7" width="17" height="12" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3.5 12h17"/></svg><b data-i18n="use_office"></b><span data-i18n="life_office_p"></span></button>
+      <button class="life" data-use="creative"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6.5" width="17" height="13" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 6.5 10 4h4l1.5 2.5"/></svg><b data-i18n="use_creative"></b><span data-i18n="life_creative_p"></span></button>
+      <button class="life" data-use="gaming"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8h10a4 4 0 0 1 3.9 4.8l-.8 3.7a2 2 0 0 1-3.4.9L14.5 15h-5l-2.2 2.4a2 2 0 0 1-3.4-.9l-.8-3.7A4 4 0 0 1 7 8z"/><path d="M8 11v3M6.5 12.5h3"/></svg><b data-i18n="use_gaming"></b><span data-i18n="life_gaming_p"></span></button>
+      <button class="life" data-use="travel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 13.5 17-6.5-4 12-4.5-4.5-3 2.5.5-4z"/></svg><b data-i18n="use_travel"></b><span data-i18n="life_travel_p"></span></button>
+    </div>
+  </section>
+
+  <section class="block how">
+    <h2 class="block-title" data-i18n-html="how_title"></h2>
+    <ol class="steps">
+      <li><span class="step-n">01</span><h3 data-i18n="s1_h"></h3><p data-i18n="s1_p"></p></li>
+      <li><span class="step-n">02</span><h3 data-i18n="s2_h"></h3><p data-i18n="s2_p"></p></li>
+      <li><span class="step-n">03</span><h3 data-i18n="s3_h"></h3><p data-i18n="s3_p"></p></li>
+    </ol>
+  </section>
+
+  <footer class="footer">
+    <a class="logo" href="#home"><span class="logo-mark" aria-hidden="true"></span><span class="logo-word">FairSpec</span></a>
+    <p id="footerNote"></p>
+    <button type="button" class="btn btn-glass" data-qr data-i18n="qr_btn"></button>
+  </footer>
+</section>
+
+<!-- ============ SELL (3-step wizard) ============ -->
+<section class="view" data-view="sell" hidden>
+  <div class="page-head">
+    <p class="eyebrow" data-i18n="tag_sellers"></p>
+    <h1 class="page-title" data-i18n-html="sell_title"></h1>
+  </div>
+  <ol class="wiz-steps" id="wizSteps">
+    <li data-step="1"><i>1</i><span data-i18n="wiz_step1"></span></li>
+    <li data-step="2"><i>2</i><span data-i18n="wiz_step2"></span></li>
+    <li data-step="3"><i>3</i><span data-i18n="wiz_step3"></span></li>
+  </ol>
+
+  <form class="wizard" id="sellForm" autocomplete="off" novalidate>
+    <div class="wiz-panel glass" data-panel="1">
+      <label class="field big-search"><span data-i18n="f_model"></span>
+        <input list="dlModels" id="fModel" data-i18n-ph="ph_model">
+      </label>
+      <p class="hint" id="specsFound" hidden data-i18n="specs_found"></p>
+      <details class="how-find"><summary data-i18n="how_find"></summary><p data-i18n="find_mac"></p><p data-i18n="find_win"></p></details>
+      <div class="spec-grid">
+        <label class="field"><span data-i18n="f_brand"></span><select id="fBrand"></select></label>
+        <label class="field"><span data-i18n="f_os"></span><select id="fOs"><option>Windows</option><option>macOS</option><option>Chrome OS</option></select></label>
+        <label class="field span-2"><span><span data-i18n="f_cpu"></span> <button type="button" class="q" data-term="cpu" aria-label="?">?</button></span><input list="dlCpus" id="fCpu" data-i18n-ph="ph_cpu" required></label>
+        <label class="field span-2"><span><span data-i18n="f_gpu"></span> <button type="button" class="q" data-term="gpu" aria-label="?">?</button></span><input list="dlGpus" id="fGpu" data-i18n-ph="ph_gpu" required></label>
+        <label class="field"><span><span data-i18n="f_ram"></span> <button type="button" class="q" data-term="ram" aria-label="?">?</button></span><select id="fRam"></select></label>
+        <label class="field"><span><span data-i18n="f_storage"></span> <button type="button" class="q" data-term="storage" aria-label="?">?</button></span><select id="fStorage"></select></label>
+        <label class="field"><span data-i18n="f_stype"></span><select id="fStype"><option value="ssd">SSD</option><option value="hdd">HDD / eMMC</option></select></label>
+        <label class="field"><span><span data-i18n="f_inches"></span> <button type="button" class="q" data-term="screen" aria-label="?">?</button></span><select id="fInches"></select></label>
+        <label class="field"><span data-i18n="f_res"></span><select id="fRes"></select></label>
+        <label class="field toggle"><input type="checkbox" id="fTouch"> <span data-i18n="f_touch"></span></label>
+      </div>
+      <p class="form-err" id="wizErr" role="alert"></p>
+      <div class="wiz-nav"><span></span><button type="button" class="btn btn-ink" data-next="2" data-i18n="next"></button></div>
+    </div>
+
+    <div class="wiz-panel glass" data-panel="2" hidden>
+      <p class="f-title" data-i18n="f_age"></p>
+      <input type="hidden" id="fAge" value="1">
+      <div class="chips" id="fAgeChips">
+        <button type="button" class="chip" data-v="0" data-i18n="age0"></button>
+        <button type="button" class="chip on" data-v="1" data-i18n="age1"></button>
+        <button type="button" class="chip" data-v="2" data-i18n="age2"></button>
+        <button type="button" class="chip" data-v="3" data-i18n="age3"></button>
+        <button type="button" class="chip" data-v="4" data-i18n="age4"></button>
+        <button type="button" class="chip" data-v="5" data-i18n="age5"></button>
+      </div>
+      <p class="f-title" data-i18n="f_cond"></p>
+      <div class="cond-grid" id="fCond" role="radiogroup">
+        <button type="button" class="chip cond" data-v="1.05" data-key="cond_new"><b data-i18n="cond_new"></b><span data-i18n="cond_new_d"></span></button>
+        <button type="button" class="chip cond on" data-v="1" data-key="cond_good"><b data-i18n="cond_good"></b><span data-i18n="cond_good_d"></span></button>
+        <button type="button" class="chip cond" data-v="0.85" data-key="cond_fair"><b data-i18n="cond_fair"></b><span data-i18n="cond_fair_d"></span></button>
+        <button type="button" class="chip cond" data-v="0.55" data-key="cond_repair"><b data-i18n="cond_repair"></b><span data-i18n="cond_repair_d"></span></button>
+      </div>
+      <label class="field toggle"><input type="checkbox" id="fBox"> <span data-i18n="f_box"></span></label>
+      <div class="wiz-nav"><button type="button" class="btn btn-glass" data-next="1" data-i18n="back"></button><button class="btn btn-ink" type="submit" data-i18n="btn_estimate"></button></div>
+    </div>
+  </form>
+
+  <div class="wiz-result" data-panel="3" hidden>
+    <aside class="result glass" id="sellResult"></aside>
+    <button type="button" class="btn btn-glass btn-wide" data-next="1" data-i18n="value_another"></button>
+  </div>
+</section>
+
+<!-- ============ BUY ============ -->
+<section class="view" data-view="buy" hidden>
+  <div class="page-head">
+    <p class="eyebrow" data-i18n="tag_buyers"></p>
+    <h1 class="page-title" data-i18n-html="buy_title"></h1>
+    <div class="tabs" role="tablist">
+      <button class="tab on" data-tab="specs" role="tab" data-i18n="tab_specs"></button>
+      <button class="tab" data-tab="listings" role="tab"><span data-i18n="tab_listings"></span> <span class="count" id="listCount">0</span></button>
+    </div>
+  </div>
+
+  <div class="buy-wrap" data-pane="specs">
+    <form class="glass filters" id="buyForm">
+      <div class="f-group">
+        <p class="f-title" data-i18n="use_title"></p>
+        <div class="chips" id="bUse">
+          <button type="button" class="chip on" data-v="any" data-i18n="use_any"></button>
+          <button type="button" class="chip" data-v="study" data-i18n="use_study"></button>
+          <button type="button" class="chip" data-v="office" data-i18n="use_office"></button>
+          <button type="button" class="chip" data-v="creative" data-i18n="use_creative"></button>
+          <button type="button" class="chip" data-v="gaming" data-i18n="use_gaming"></button>
+          <button type="button" class="chip" data-v="travel" data-i18n="use_travel"></button>
+        </div>
+      </div>
+      <div class="f-group">
+        <p class="f-title"><span data-i18n="budget"></span> <b id="bBudgetOut"></b></p>
+        <input type="range" id="bBudget" min="300" max="7500" step="50" value="2000">
+      </div>
+      <div class="f-group">
+        <p class="f-title"><span data-i18n="ram_min"></span> <button type="button" class="q" data-term="ram" aria-label="?">?</button></p>
+        <div class="chips" id="bRam">
+          <button type="button" class="chip on" data-v="0" data-i18n="any"></button>
+          <button type="button" class="chip" data-v="8">8 GB</button>
+          <button type="button" class="chip" data-v="16">16 GB</button>
+          <button type="button" class="chip" data-v="32">32 GB</button>
+          <button type="button" class="chip" data-v="64">64 GB</button>
+        </div>
+      </div>
+      <div class="f-group">
+        <p class="f-title"><span data-i18n="storage_min"></span> <button type="button" class="q" data-term="storage" aria-label="?">?</button></p>
+        <div class="chips" id="bStorage">
+          <button type="button" class="chip on" data-v="0" data-i18n="any"></button>
+          <button type="button" class="chip" data-v="256">256 GB</button>
+          <button type="button" class="chip" data-v="512">512 GB</button>
+          <button type="button" class="chip" data-v="1000">1 TB</button>
+          <button type="button" class="chip" data-v="2000">2 TB+</button>
+        </div>
+      </div>
+      <div class="f-group">
+        <p class="f-title"><span data-i18n="graphics"></span> <button type="button" class="q" data-term="gpu" aria-label="?">?</button></p>
+        <div class="chips" id="bGpu">
+          <button type="button" class="chip on" data-v="any" data-i18n="any"></button>
+          <button type="button" class="chip" data-v="ded" data-i18n="gpu_ded"></button>
+          <button type="button" class="chip" data-v="strong" data-i18n="gpu_strong"></button>
+        </div>
+      </div>
+      <div class="f-group">
+        <p class="f-title" data-i18n="screen"></p>
+        <div class="chips" id="bScreen">
+          <button type="button" class="chip on" data-v="any" data-i18n="any"></button>
+          <button type="button" class="chip" data-v="small" data-i18n="scr_small"></button>
+          <button type="button" class="chip" data-v="mid">15–16"</button>
+          <button type="button" class="chip" data-v="big">17"+</button>
+        </div>
+      </div>
+      <div class="f-group two">
+        <label class="field"><span data-i18n="f_brand"></span><select id="bBrand"><option value="" data-i18n="all_brands"></option></select></label>
+        <label class="field"><span data-i18n="f_os"></span><select id="bOs"><option value="" data-i18n="any"></option><option>Windows</option><option>macOS</option><option>Chrome OS</option></select></label>
+      </div>
+    </form>
+
+    <div class="results">
+      <div class="summary glass" id="buySummary"></div>
+      <div class="results-bar">
+        <p id="buyCount"></p>
+        <label class="sort"><span data-i18n="sort"></span>
+          <select id="bSort">
+            <option value="value" data-i18n="sort_value"></option>
+            <option value="low" data-i18n="sort_low"></option>
+            <option value="perf" data-i18n="sort_perf"></option>
+          </select>
+        </label>
+      </div>
+      <div class="cards" id="buyCards"></div>
+      <div id="buyMore"></div>
+    </div>
+  </div>
+
+  <div class="listings-wrap" data-pane="listings" hidden>
+    <div class="cards" id="listingCards"></div>
+  </div>
+
+  <div class="compare-tray glass" id="compareTray" hidden>
+    <span id="compareCount"></span>
+    <button class="btn btn-glass btn-sm" id="compareClear" data-i18n="clear"></button>
+    <button class="btn btn-ink btn-sm" id="compareGo" data-i18n="compare"></button>
+  </div>
+</section>
+
+<!-- ============ ASSISTANT ============ -->
+<section class="view" data-view="ask" hidden>
+  <div class="chat-wrap">
+    <div class="chat-head">
+      <div class="orb" aria-hidden="true"></div>
+      <div>
+        <h1 class="chat-title" data-i18n="ask_title"></h1>
+        <p class="chat-sub" data-i18n="ask_sub"></p>
+      </div>
+      <button class="btn btn-glass btn-sm" id="chatRestart" data-i18n="start_over"></button>
+    </div>
+    <div class="chat" id="chat" aria-live="polite"></div>
+    <form class="chat-input glass" id="chatForm">
+      <input id="chatText" autocomplete="off" data-i18n-ph="type_ph" maxlength="200">
+      <button class="send" type="submit" data-i18n-aria="send"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ YOU ============ -->
+<section class="view" data-view="you" hidden>
+  <div class="page-head">
+    <p class="eyebrow" data-i18n="dock_you"></p>
+    <h1 class="page-title" data-i18n-html="you_title"></h1>
+  </div>
+  <div class="you-grid">
+    <div class="glass you-card" id="youCard"></div>
+    <button class="glass you-card you-link" id="youPrefs"><b data-i18n="prefs"></b><span id="youPrefsLabel"></span></button>
+  </div>
+  <div class="orders" id="ordersBox" hidden></div>
+  <div class="pricing" id="pricing">
+    <h2 class="block-title" data-i18n-html="pricing_title"></h2>
+    <p class="section-sub" data-i18n="pricing_sub"></p>
+    <div class="plans" id="plans"></div>
+    <p class="fine" id="priceNote"></p>
+  </div>
+</section>
+</main>
+
+<!-- ============ GLOSSARY POPOVER ============ -->
+<div class="modal" id="termModal" hidden>
+  <div class="modal-card glass term-card">
+    <button class="x" data-close data-i18n-aria="close">×</button>
+    <p class="eyebrow" id="termLevel"></p>
+    <h2 id="termTitle"></h2>
+    <p id="termBody"></p>
+    <div class="chips" id="termLevels"></div>
+  </div>
+</div>
+
+<!-- ============ COMPARE SHEET ============ -->
+<div class="modal" id="compareModal" hidden>
+  <div class="modal-card glass compare-card">
+    <button class="x" data-close data-i18n-aria="close">×</button>
+    <h2 data-i18n="compare_title"></h2>
+    <div id="compareBody"></div>
+  </div>
+</div>
+
+<!-- ============ PREFERENCES MODAL ============ -->
+<div class="modal" id="prefsModal" hidden>
+  <div class="modal-card glass">
+    <button class="x" data-close data-i18n-aria="close">×</button>
+    <h2 data-i18n="prefs"></h2>
+    <p class="section-sub prefs-note" data-i18n="set_note"></p>
+    <div class="prefs-group"><p class="f-title" data-i18n="set_lang"></p><div class="chips" id="prefLang"></div></div>
+    <label class="field"><span data-i18n="set_country"></span><select id="prefCountry"></select></label>
+    <div class="prefs-group"><p class="f-title" data-i18n="set_currency"></p><div class="chips" id="prefCur"></div></div>
+    <button class="btn btn-ink btn-wide" data-close data-i18n="done"></button>
+  </div>
+</div>
+
+<!-- ============ AUTH MODAL ============ -->
+<div class="modal" id="authModal" hidden>
+  <div class="modal-card glass">
+    <button class="x" data-close data-i18n-aria="close">×</button>
+    <div class="auth-head">
+      <span class="logo-mark big" aria-hidden="true"></span>
+      <h2 data-i18n="auth_title"></h2>
+      <p id="authSub"></p>
+    </div>
+    <div class="seg" role="tablist">
+      <button class="on" data-mode="signin" data-i18n="sign_in"></button>
+      <button data-mode="signup" data-i18n="signup"></button>
+    </div>
+    <form id="authForm">
+      <label class="field" id="nameField" hidden><span data-i18n="name"></span><input id="aName" autocomplete="name" data-i18n-ph="ph_name"></label>
+      <label class="field" id="emailField"><span data-i18n="email"></span><input id="aEmail" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+      <label class="field"><span data-i18n="password"></span><input id="aPass" type="password" autocomplete="current-password" data-i18n-ph="ph_pass" minlength="6" required></label>
+      <button type="button" class="link-btn" id="forgotBtn" data-i18n="forgot"></button>
+      <p class="form-err" id="authErr" role="alert"></p>
+      <button class="btn btn-ink btn-wide" type="submit" id="authSubmit"></button>
+    </form>
+    <div class="or"><span data-i18n="or"></span></div>
+    <button class="btn btn-glass btn-wide" id="guestBtn" data-i18n="guest"></button>
+    <p class="fine" data-i18n-html="auth_fine"></p>
+  </div>
+</div>
+
+<!-- ============ CHECKOUT MODAL ============ -->
+<div class="modal" id="payModal" hidden><div class="modal-card glass"><button class="x" data-close data-i18n-aria="close">×</button><div id="payBody"></div></div></div>
+
+<!-- ============ LIST-FOR-SALE MODAL ============ -->
+<div class="modal" id="listModal" hidden>
+  <div class="modal-card glass">
+    <button class="x" data-close data-i18n-aria="close">×</button>
+    <h2 data-i18n="list_h"></h2>
+    <p class="section-sub" id="listSub"></p>
+    <form id="listForm">
+      <label class="field"><span id="lPriceLabel"></span><input id="lPrice" type="number" min="10" step="10" required></label>
+      <label class="field"><span data-i18n="city"></span><input id="lCity" data-i18n-ph="ph_city" required></label>
+      <label class="field"><span><span data-i18n="note"></span> <small data-i18n="note_hint"></small></span><input id="lNote" maxlength="120" data-i18n-ph="ph_note"></label>
+      <button class="btn btn-ink btn-wide" type="submit" data-i18n="publish"></button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ LAPTOP PROFILE ============ -->
+<div class="modal" id="laptopModal" hidden>
+  <div class="modal-card glass lap-card">
+    <button class="x" data-close data-i18n-aria="close">×</button>
+    <div id="lapBody"></div>
+  </div>
+</div>
+
+<!-- ============ CHECKOUT MODAL (demo payment, card details never leave the page) ============ -->
+<div class="modal" id="buyModal" hidden>
+  <div class="modal-card glass pay-card">
+    <button class="x" data-close data-i18n-aria="close">×</button>
+    <div id="buyStage">
+      <p class="eyebrow" data-i18n="buy_h"></p>
+      <h2 id="buyTitle"></h2>
+      <p class="section-sub" id="buySeller"></p>
+      <p class="buy-price" id="buyPrice"></p>
+      <p class="section-sub" id="buyFair"></p>
+      <form id="coForm" autocomplete="off" novalidate>
+        <h3 class="lap-h" data-i18n="co_delivery"></h3>
+        <div class="chips" id="coDelivery">
+          <button type="button" class="chip on" data-v="meet" data-i18n="co_meet"></button>
+          <button type="button" class="chip" data-v="ship" id="coShipLabel"></button>
+        </div>
+        <label class="field" id="coShip" hidden><span data-i18n="co_addr"></span><input id="coAddr" maxlength="160" autocomplete="off" data-i18n-ph="co_addr_ph"></label>
+        <h3 class="lap-h" data-i18n="co_card"></h3>
+        <div class="card-vis" aria-hidden="true">
+          <div class="card-vis-top"><span class="card-chip"></span><span id="cvBrand"></span></div>
+          <div class="card-vis-num" id="cvNum"></div>
+          <div class="card-vis-bot"><span id="cvName"></span><span id="cvExp"></span></div>
+        </div>
+        <label class="field"><span data-i18n="co_num"></span><input id="cNum" inputmode="numeric" autocomplete="off" placeholder="0000 0000 0000 0000"></label>
+        <div class="co-row">
+          <label class="field"><span data-i18n="co_exp"></span><input id="cExp" inputmode="numeric" autocomplete="off" placeholder="MM/YY"></label>
+          <label class="field"><span>CVC</span><input id="cCvc" inputmode="numeric" autocomplete="off" placeholder="123"></label>
+        </div>
+        <label class="field"><span data-i18n="co_name"></span><input id="cName" autocomplete="off" maxlength="60" data-i18n-ph="co_name_ph"></label>
+        <button type="button" class="link-btn" id="cTest" data-i18n="co_test"></button>
+        <textarea id="buyMsg" class="textarea" maxlength="600" rows="2"></textarea>
+        <div class="co-total" id="coTotal"></div>
+        <p class="safety" data-i18n="co_demo_note"></p>
+        <p class="co-err" id="coErr" role="alert"></p>
+        <button class="btn btn-ink btn-wide" type="submit" id="coPay"></button>
+      </form>
+    </div>
+    <div id="buyDone" class="co-done" hidden></div>
+  </div>
+</div>
+
+<!-- ============ QR FOR THE AUDIENCE ============ -->
+<div class="modal" id="qrModal" hidden>
+  <div class="modal-card glass qr-card">
+    <button class="x" data-close data-i18n-aria="close">×</button>
+    <h2 data-i18n="qr_h"></h2>
+    <p class="section-sub" data-i18n="qr_sub"></p>
+    <div class="qr-box" id="qrBox"></div>
+    <p class="qr-url" id="qrUrl"></p>
+  </div>
+</div>
+
+<!-- ============ DEMO CHAT MODAL ============ -->
+<div class="modal" id="chatModal" hidden>
+  <div class="modal-card glass chat-card">
+    <button class="x" data-close data-i18n-aria="close">×</button>
+    <div class="chat-top"><span class="avatar" aria-hidden="true">✦</span><div><h2 id="chatWho"></h2><p class="section-sub" id="chatAbout"></p></div></div>
+    <div class="chat-thread" id="chatThread" aria-live="polite"></div>
+    <div class="chips chat-q"><button type="button" class="chip" data-q="q_avail"></button><button type="button" class="chip" data-q="q_discount"></button><button type="button" class="chip" data-q="q_meet"></button><button type="button" class="chip" data-q="q_battery"></button></div>
+    <form id="chatForm" class="chat-form"><input id="chatInput" class="textarea" maxlength="600" autocomplete="off" data-i18n-ph="msg_ph"><button class="btn btn-ink" type="submit" data-i18n="send"></button></form>
+    <div id="chatBuy" class="chat-buy"></div>
+    <p class="chat-note" data-i18n="chat_shared"></p>
+  </div>
+</div>
+
+<!-- ============ MESSAGE MODAL ============ -->
+<div class="modal" id="msgModal" hidden>
+  <div class="modal-card glass">
+    <button class="x" data-close data-i18n-aria="close">×</button>
+    <h2 id="msgTitle"></h2>
+    <p class="section-sub" id="msgAbout"></p>
+    <form id="msgForm">
+      <textarea id="msgBody" class="textarea" maxlength="1000" rows="4" required data-i18n-ph="msg_ph"></textarea>
+      <p class="safety" data-i18n="safety_tip"></p>
+      <button class="btn btn-ink btn-wide" type="submit" data-i18n="send"></button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ INBOX MODAL ============ -->
+<div class="modal" id="inboxModal" hidden>
+  <div class="modal-card glass inbox-card">
+    <button class="x" data-close data-i18n-aria="close">×</button>
+    <h2 data-i18n="messages"></h2>
+    <p class="safety" data-i18n="safety_tip"></p>
+    <div id="inboxList" class="inbox"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<datalist id="dlModels"></datalist>
+<datalist id="dlCpus"></datalist>
+<datalist id="dlGpus"></datalist>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
+<script src="config.js?v=37"></script>
+<script src="catalog.js?v=37"></script>
+<script src="model.js?v=37"></script>
+<script src="i18n.js?v=37"></script>
+<script src="i18n-more.js?v=37"></script>
+<script src="app.js?v=37"></script>
+<script src="assistant.js?v=37"></script>
+<script type="module" src="hero3d.js?v=37"></script>
+</body>
+</html>

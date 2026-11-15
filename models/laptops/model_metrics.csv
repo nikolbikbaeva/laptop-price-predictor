@@ -1,0 +1,8 @@
+model,family,val_rmse,val_r2,r2,mae,rmse,mape
+Gradient boosting,Boosting,103.579,0.9761,0.973,52.0042,119.601,3.6625
+Random forest,Ensemble,134.5799,0.96,0.9579,53.3038,149.3966,3.4856
+Decision tree,Tree,164.3847,0.9387,0.9292,58.9326,193.7692,3.2858
+k-nearest neighbours,Instance,333.7789,0.7474,0.7771,239.3211,343.9028,12.0932
+Linear regression,Linear,442.8882,0.5099,0.6332,151.9307,441.1394,7.8268
+Ridge regression,Linear,445.1474,0.5038,0.6323,150.2629,441.6545,7.7417
+Median baseline,Reference,688.7954,-0.0548,-0.0768,510.0297,755.7899,24.9527

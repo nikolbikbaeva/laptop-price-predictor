@@ -1,0 +1,4 @@
+Company,TypeName,Cpu,Gpu,Inches,X_res,Y_res,ppi,TouchScreen,Ips,Dedicated_Gpu,Ram_GB,Weight_kg,SSD,HHD,predicted_price
+Apple,Apple MacBook Pro 16,Apple M3 Pro (12-core CPU),Apple M3 Pro GPU (18-core),16.2,3456.0,2234.0,254.02,1.0,1.0,1.0,18.0,2.14,512.0,0.0,1598.0
+Lenovo,"Lenovo Yoga Slim 7i Aura Edition (14″, Gen 11)",Intel Core Ultra 7 355,Intel Graphics (4-Cores),14.0,1920.0,1200.0,161.73,0.0,0.0,0.0,32.0,1.14,2000.0,0.0,2048.0
+Dell,Dell Pro Max 16 (MC16255),AMD Ryzen AI 9 HX PRO 370,NVIDIA RTX PRO 1000 Blackwell,16.0,1920.0,1200.0,141.51,1.0,1.0,1.0,64.0,2.08,2000.0,0.0,2521.0

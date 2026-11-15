@@ -1,0 +1,75 @@
+LAPTOP SCRAP DATA - COLUMN GUIDE
+================================
+
+File:      laptop_scrap_data.csv
+Rows:      1,563 (3 completely empty) -> 1,560 laptops
+Columns:   21
+One row:   one laptop configuration with its listed price.
+           The same laptop model (TypeName) can appear several times with
+           different memory, storage, CPU or GPU.
+
+Company (Text)
+    Brand of the laptop, e.g. HP, Lenovo, ASUS, Dell, Apple. 18 brands.
+
+TypeName (Text)
+    Laptop model name, e.g. "Lenovo Yoga Slim 7i Aura Edition (14", Gen 11)".
+    455 distinct models.
+
+Inches (Continuous)
+    Screen diagonal in inches.
+
+ScreenResolution (Text)
+    Screen resolution as text, e.g. "2880 x 1800".
+
+Cpu (Text)
+    Processor name, free text, e.g. "Intel Core Ultra 7 258V", "Apple M3 Pro".
+
+Gpu (Text)
+    Graphics name, free text, e.g. "NVIDIA GeForce RTX 4060", "Intel Arc".
+
+OpSys (Text)
+    Operating system: Windows (1,512), Chrome OS (26), macOS (22).
+
+TouchScreen (Binary)
+    1 = touch screen, 0 = no touch screen.
+
+Ips (Binary)
+    1 = IPS panel (better colours and viewing angles), 0 = other.
+
+X_res (Discrete)
+    Horizontal screen resolution in pixels.
+
+Y_res (Discrete)
+    Vertical screen resolution in pixels.
+
+ppi (Continuous)
+    Pixels per inch: how sharp the screen is.
+
+Dedicated_Gpu (Binary)
+    1 = separate graphics card, 0 = integrated graphics only.
+
+Ram_GB (Discrete)
+    Memory (RAM) in GB, from 4 to 192.
+
+Weight_kg (Continuous)
+    Weight in kilograms. 11 rows contain 0, which means the value is missing.
+
+SSD (Discrete)
+    SSD storage in GB.
+
+HHD (Discrete)
+    Hard-disk storage in GB (0 for most laptops).
+
+Storage_Type (Text)
+    Storage summary, e.g. "SSD Only".
+
+Total_Storage_GB (Discrete)
+    SSD + HDD in GB. 1 row contains 0, which means the value is missing.
+
+Storage_Category (Text)
+    Storage size group, e.g. "Standard (512GB-1TB)".
+
+Price (Continuous) - TARGET
+    Listed price of the configuration. The currency is not labelled in the
+    source; this project treats it as USD.
+    Median 1,807.8 · minimum 305.99 · maximum 7,488.8 (all 1,560 laptops).

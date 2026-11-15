@@ -1,0 +1,30 @@
+{
+  "title": "Laptop Specs and Price Dataset (scraped laptop listings)",
+  "downloaded_from": "Kaggle",
+  "source_data_url": "TODO: add the Kaggle dataset link",
+  "license": "TODO: check the license on the dataset page",
+  "source_sha256": "6f7cb24e10b0e5cc34ab2f79c6ca5cbf3f818d62a9734024d74598a49d8953ae",
+  "observations": 1563,
+  "empty_rows": 3,
+  "laptops": 1560,
+  "columns": 21,
+  "target": {
+    "column": "Price",
+    "unit": "not labelled in the source; treated as USD",
+    "description": "Listed price of the laptop configuration"
+  },
+  "files": {
+    "laptop_scrap_data.csv": "Original file, preserved byte for byte",
+    "laptops_starter.csv": "Five simple input columns and the target, for first exercises (empty rows removed, nothing else changed)",
+    "data_description.txt": "Column guide written by the team"
+  },
+  "starter_column_mapping": {
+    "brand": "Company",
+    "ram_gb": "Ram_GB",
+    "ssd_gb": "SSD",
+    "dedicated_gpu": "Dedicated_Gpu",
+    "screen_inches": "Inches",
+    "price": "Price"
+  },
+  "preparation": "No changes to the original file. Cleaning (removing empty rows and impossible values) happens in scripts/common.py."
+}

@@ -1,0 +1,311 @@
+Company,TypeName,Cpu,Gpu,Ram_GB,SSD,actual_price,predicted_price,error
+Lenovo,"Lenovo Yoga Slim 7i Aura Edition (14″, Gen 11)",Intel Core Ultra 7 355,Intel Graphics (4-Cores),32.0,2000.0,2028.8,2048.18,19.38
+HP,HP 15,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),16.0,512.0,1359.2,1377.03,17.83
+Dell,Dell Inspiron 14 5441,Qualcomm Snapdragon X Plus X1P-42-100,Qualcomm Snapdragon X Elite Adreno GPU,16.0,512.0,1511.2,1514.47,3.27
+HP,HP ZBook Firefly 14 G11 / A,AMD Ryzen 7 8840HS,AMD Radeon 780M,64.0,2000.0,2868.8,2832.08,-36.72
+Dell,Dell Inspiron 14 7440,Intel Core 5 120U,Intel Iris Xe Graphics G7 (80EU),64.0,2000.0,2668.8,2658.28,-10.52
+Dell,Dell Pro Max 16 (MC16255),AMD Ryzen AI 9 HX PRO 370,NVIDIA RTX PRO 1000 Blackwell,64.0,2000.0,2828.8,2521.34,-307.46
+HP,HP ZBook 8 G1i,Intel Core Ultra 7 255H,NVIDIA RTX 500 Ada Generation,16.0,512.0,1611.2,1597.41,-13.79
+HP,HP 15,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),16.0,1000.0,1456.8,1453.81,-2.99
+ASUS,ASUS ROG Strix G16,AMD Ryzen 9 8940HX,NVIDIA GeForce RTX 5070 (Laptop),32.0,2000.0,2188.8,2211.85,23.05
+HP,HP 250 G10 / 255 G10,AMD Ryzen 7 7730U,"AMD Radeon RX Vega 8 (R4000/5000, 15W)",32.0,2000.0,1099.0,2049.58,950.58
+Lenovo,Lenovo Legion Slim 5i / S5,Intel Core i7-13700H,"NVIDIA GeForce RTX 4060 (Laptop, 140W)",24.0,1000.0,1928.8,1880.06,-48.74
+Acer,Acer Predator Triton 14 AI (PT14-52T),Intel Core Ultra 9 288V,NVIDIA GeForce RTX 5070 (Laptop),32.0,1000.0,2043.8,2034.55,-9.25
+Lenovo,Lenovo ThinkPad X1 2-in-1 Gen 10 Aura Edition,Intel Core Ultra 7 255U,Intel Graphics (4-Cores),16.0,512.0,1411.2,1416.74,5.54
+HP,HP ENVY 17,Intel Core i7-1355U,NVIDIA GeForce RTX 3050 (Laptop),64.0,1000.0,2667.8,2691.02,23.22
+HP,HP 14,Intel Celeron N4500,Intel UHD Graphics (Jasper Lake 16 EU),16.0,512.0,1311.2,1313.13,1.93
+ASUS,ASUS ExpertBook P1,Intel Core 5 210H,Intel UHD Graphics Xe G4 (48EU),16.0,512.0,1411.2,1423.87,12.67
+HP,HP 15,Intel Core 7 150U,Intel Iris Xe Graphics G7 (96EU),16.0,2000.0,1656.8,1669.05,12.25
+ASUS,ASUS V16,Intel Core 7 240H,NVIDIA GeForce RTX 5070 (Laptop),16.0,1000.0,1668.8,1687.89,19.09
+Lenovo,Lenovo V14 Gen 6,AMD Ryzen 5 150,AMD Radeon 660M,32.0,1000.0,2028.8,2000.37,-28.43
+HP,HP OMEN 16,AMD Ryzen 7 6800H,"NVIDIA GeForce RTX 3060 (Laptop, 140W)",16.0,2000.0,1871.8,1855.78,-16.02
+HP,HP EliteBook x360 1040 G11,Intel Core Ultra 7 165H,Intel Arc (8-Cores),32.0,512.0,1931.2,1919.8,-11.4
+Dell,Dell Inspiron 15 3535,AMD Ryzen 7 7730U,"AMD Radeon RX Vega 8 (R4000/5000, 15W)",24.0,2000.0,889.0,1146.59,257.59
+Lenovo,Lenovo ThinkPad T14 Gen 6,AMD Ryzen AI 7 PRO 350,AMD Radeon 860M,64.0,2000.0,2868.8,2871.92,3.12
+HP,HP ZBook X G1i,Intel Core Ultra 7 255H,NVIDIA RTX PRO 1000 Blackwell,32.0,1000.0,2088.8,2084.25,-4.55
+HP,HP Victus 15,Intel Core i5-12500H,"NVIDIA GeForce RTX 4050 (Laptop, 75W)",16.0,512.0,1559.2,1556.75,-2.45
+HP,HP Victus 15,Intel Core i5-13420H,NVIDIA GeForce RTX 4050 (Laptop),16.0,1000.0,1656.8,1670.23,13.43
+Lenovo,Lenovo ThinkPad P1 Gen 8,Intel Core Ultra 7 255H,NVIDIA RTX PRO 1000 Blackwell,32.0,1000.0,1988.8,1990.07,1.27
+Lenovo,Lenovo ThinkPad P14s Gen 6,Intel Core Ultra 7 255H,NVIDIA RTX PRO 500 Blackwell,32.0,1000.0,2043.8,2032.39,-11.41
+HP,HP 250 G9 / 255 G9,Intel Core i5-1335U,Intel Iris Xe Graphics G7 (80EU),32.0,1000.0,1776.8,1762.01,-14.79
+Lenovo,Lenovo LOQ 15,AMD Ryzen 5 7235HS,"NVIDIA GeForce RTX 4050 (Laptop, 105W)",24.0,1000.0,1816.8,1783.69,-33.11
+Samsung,Samsung Galaxy Book2 Pro 360,Intel Core i7-1260P,Intel Iris Xe Graphics G7 (96EU),16.0,4000.0,2056.8,2065.64,8.84
+Alienware,Alienware 16 Aurora,Intel Core 7 240H,NVIDIA GeForce RTX 5060 (Laptop),32.0,2000.0,2288.8,2302.05,13.25
+Microsoft,Microsoft Surface Laptop 7,Intel Core Ultra 7 268V,Intel Arc Graphics 140V,32.0,256.0,1910.0,1903.98,-6.02
+Lenovo,Lenovo Yoga Slim 7,Qualcomm Snapdragon X Elite X1E-78-100,Qualcomm Snapdragon X Elite Adreno GPU,16.0,512.0,1526.2,1512.21,-13.99
+HP,HP Victus 16,AMD Ryzen 7 5800H,"NVIDIA GeForce RTX 3060 (Laptop, 95W)",16.0,512.0,1574.2,1572.22,-1.98
+Lenovo,Lenovo ThinkPad T14 Gen 5,Intel Core Ultra 7 155U,Intel Graphics (4-Cores),48.0,2000.0,2348.8,2320.65,-28.15
+Gigabyte,GIGABYTE GAMING A16 GA6H,Intel Core i7-13620H,NVIDIA GeForce RTX 4050 (Laptop),32.0,2000.0,2188.8,2207.18,18.38
+Dell,Dell Inspiron 15 3535,AMD Ryzen 7 7730U,"AMD Radeon RX Vega 8 (R4000/5000, 15W)",32.0,2000.0,1039.0,1256.97,217.97
+ASUS,ASUS TUF Gaming F16 FX608,Intel Core i7-14650HX,NVIDIA GeForce RTX 5060 (Laptop),32.0,2000.0,2188.8,2203.26,14.46
+ASUS,ASUS Vivobook S 14 OLED,AMD Ryzen AI 9 365,AMD Radeon 880M,32.0,1000.0,2028.8,2015.01,-13.79
+HP,HP 15,Intel Core i5-1334U,Intel Iris Xe Graphics G7 (80EU),16.0,512.0,1359.2,1375.91,16.71
+HP,HP 17,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),16.0,1000.0,1507.8,1490.79,-17.01
+ASUS,ASUS Vivobook Go 15 OLED,AMD Ryzen 5 7520U,AMD Radeon 610M,16.0,4000.0,2256.8,2201.32,-55.48
+ASUS,ASUS Vivobook S 16 OLED,Intel Core Ultra 9 285H,Intel Arc 140T,32.0,4000.0,2688.8,2645.69,-43.11
+ASUS,ASUS Vivobook Go 15 OLED,AMD Ryzen 3 30,AMD Radeon 610M,8.0,256.0,1348.0,1325.62,-22.38
+Lenovo,Lenovo IdeaPad 3,AMD Ryzen 5 3500U,AMD Radeon RX Vega 3,36.0,1000.0,2056.8,1981.32,-75.48
+Lenovo,Lenovo ThinkPad E14 Gen 5,Intel Core i5-1335U,Intel Iris Xe Graphics G7 (80EU),12.0,512.0,1331.2,1215.11,-116.09
+HP,HP 15,Intel Core i3-N305,Intel UHD Graphics Xe 750 (32EU),16.0,512.0,1359.2,1383.41,24.21
+MSI,MSI Raider 16 HX AI (A2XWx),Intel Core Ultra 9 275HX,NVIDIA GeForce RTX 5070 Ti (Laptop),96.0,1000.0,3368.8,3335.46,-33.34
+Lenovo,Lenovo ThinkPad T16 Gen 4,Intel Core Ultra 5 238V,Intel Arc Graphics 130V,64.0,2000.0,2828.8,2805.47,-23.33
+Lenovo,Lenovo ThinkPad T14 Gen 2,AMD Ryzen 7 PRO 5850U,"AMD Radeon RX Vega 8 (R4000/5000, 15W)",16.0,512.0,1611.2,1596.82,-14.38
+HP,HP 15,Intel Core i3-N305,Intel UHD Graphics Xe 750 (32EU),16.0,256.0,1308.0,1352.75,44.75
+ASUS,ASUS Vivobook 14,Intel Core 5 120U,Intel Iris Xe Graphics G7 (80EU),24.0,4000.0,2268.8,2292.48,23.68
+Acer,Acer TravelMate P6 14 AI,Intel Core Ultra 7 256V,Intel Arc Graphics 140V,16.0,1000.0,1708.8,1733.41,24.61
+Lenovo,Lenovo LOQ 15,Intel Core i5-13450HX,NVIDIA GeForce RTX 5060 (Laptop),16.0,512.0,1559.2,1554.22,-4.98
+Lenovo,Lenovo ThinkPad P16v Gen 3,Intel Core Ultra 7 255H,NVIDIA RTX PRO 1000 Blackwell,32.0,1000.0,1988.8,1988.08,-0.72
+Lenovo,Lenovo Legion Slim 5i / S5,Intel Core i7-13700H,"NVIDIA GeForce RTX 4060 (Laptop, 140W)",32.0,1000.0,2088.8,2086.11,-2.69
+ASUS,ASUS ProArt GoPro Edition PX13 (HN7306),AMD Ryzen AI Max+ 395,AMD Radeon 8060S Graphics,128.0,2000.0,4127.8,3883.38,-244.42
+Dell,Dell Pro Max 16,Intel Core Ultra 7 265H,NVIDIA RTX PRO 1000 Blackwell,64.0,1000.0,2628.8,2692.03,63.23
+ASUS,ASUS TUF Gaming A18 FA808,AMD Ryzen 7 260,NVIDIA GeForce RTX 5050 (Laptop),16.0,512.0,1631.2,1609.86,-21.34
+Lenovo,Lenovo ThinkPad E14 Gen 7,Intel Core 5 210H,Intel UHD Graphics Xe G4 (48EU),16.0,256.0,1360.0,1389.25,29.25
+HP,HP 17,AMD Ryzen 5 7430U,"AMD Radeon RX Vega 7 (R4000/5000, 15W)",16.0,1000.0,799.99,1723.14,923.15
+Dell,Dell Inspiron 15 3535,AMD Ryzen 5 7530U,"AMD Radeon RX Vega 7 (R4000/5000, 15W)",16.0,1000.0,1656.8,1230.34,-426.46
+ASUS,ASUS ROG Strix G16,Intel Core i7-13650HX,"NVIDIA GeForce RTX 4060 (Laptop, 140W)",24.0,1000.0,1828.8,1803.59,-25.21
+Microsoft,Microsoft Surface Pro,Qualcomm Snapdragon X Plus X1P-42-100,Qualcomm Snapdragon X Elite Adreno GPU,16.0,256.0,1400.0,1430.42,30.42
+Lenovo,Lenovo Legion 5i,Intel Core Ultra 7 255HX,NVIDIA GeForce RTX 5060 (Laptop),64.0,2000.0,2898.8,2913.76,14.96
+Lenovo,Lenovo IdeaPad 1,Intel Celeron N4500,Intel UHD Graphics (Jasper Lake 16 EU),20.0,1128.0,1562.4,1549.46,-12.94
+Lenovo,Lenovo ThinkPad X13 Gen 6,Intel Core Ultra 7 255U,Intel Graphics (4-Cores),32.0,1000.0,1807.8,1792.22,-15.58
+ASUS,ASUS Vivobook 14,Intel Core 5 120U,Intel Iris Xe Graphics G7 (80EU),16.0,1000.0,1508.8,1511.86,3.06
+Lenovo,Lenovo Yoga 7i,Intel Core i5-1135G7,Intel Iris Xe Graphics G7 (80EU),8.0,256.0,1200.0,1182.47,-17.53
+HP,HP EliteBook X G1a,AMD Ryzen AI 9 HX PRO 375,AMD Radeon 890M,32.0,1000.0,2028.8,1999.64,-29.16
+MSI,MSI Modern A14 AI+ (F3HMx),AMD Ryzen AI 5 330,AMD Radeon 820M,32.0,1000.0,2028.8,2006.28,-22.52
+HP,HP HyperX OMEN 15,Intel Core i7-14650HX,NVIDIA GeForce RTX 5060 (Laptop),32.0,1000.0,2067.8,2082.34,14.54
+Lenovo,Lenovo ThinkPad L16 Gen 2,Intel Core Ultra 5 225U,Intel Graphics (4-Cores),8.0,512.0,1211.2,1128.64,-82.56
+MSI,MSI Katana 15 HX,Intel Core i7-14650HX,NVIDIA GeForce RTX 5070 (Laptop),64.0,2000.0,2916.8,2920.2,3.4
+MSI,MSI Cyborg 17,Intel Core 5 210H,NVIDIA GeForce RTX 5060 (Laptop),16.0,1024.0,1712.6,1715.38,2.78
+HP,HP 17,AMD Ryzen 5 7530U,"AMD Radeon RX Vega 7 (R4000/5000, 15W)",32.0,2000.0,2227.8,2234.38,6.58
+Lenovo,Lenovo ThinkPad P16 Gen 3,Intel Core Ultra 9 275HX,NVIDIA RTX PRO 4000 Blackwell,64.0,1000.0,2628.8,2649.23,20.43
+HONOR,HONOR MagicBook Pro 14,Intel Core Ultra 5 125H,Intel Arc (7-Cores),32.0,1000.0,2046.8,2029.87,-16.93
+HP,HP 15,AMD Ryzen 7 7730U,"AMD Radeon RX Vega 8 (R4000/5000, 15W)",16.0,1000.0,1656.8,1641.15,-15.65
+Lenovo,Lenovo IdeaPad 1,AMD Ryzen 3 7320U,AMD Radeon 610M,8.0,512.0,1399.2,1150.93,-248.27
+MSI,MSI Modern 15,Intel Core i5-1334U,Intel Iris Xe Graphics G7 (80EU),16.0,512.0,1359.2,1381.23,22.03
+HP,HP EliteBook 835 G10,AMD Ryzen 5 7540U,AMD Radeon 740M,16.0,512.0,1590.2,1583.85,-6.35
+Acer,Acer Chromebook 315,Intel Celeron N4500,Intel UHD Graphics (Jasper Lake 16 EU),4.0,0.0,1068.0,1072.06,4.06
+HP,HP ZBook Firefly 14 G11 / A,AMD Ryzen 7 8840HS,AMD Radeon 780M,32.0,1000.0,2028.8,1996.81,-31.99
+Lenovo,Lenovo IdeaPad 3i,Intel Core i3-1115G4,Intel UHD Graphics Xe G4 (48EU),8.0,512.0,1199.2,966.23,-232.97
+Acer,Acer Nitro V 16S AI (ANV16S-61),AMD Ryzen AI 7 350,NVIDIA GeForce RTX 5060 (Laptop),32.0,2000.0,2288.8,2299.69,10.89
+Lenovo,Lenovo IdeaPad 3i,Intel Core i3-1115G4,Intel UHD Graphics Xe G4 (48EU),16.0,1000.0,1456.8,1218.38,-238.42
+Lenovo,Lenovo IdeaPad 3i,Intel Core i3-1115G4,Intel UHD Graphics Xe G4 (48EU),16.0,2000.0,1656.8,1475.95,-180.85
+HP,HP OMEN 16,Intel Core Ultra 9 285H,NVIDIA GeForce RTX 5070 (Laptop),32.0,1000.0,1988.8,1989.5,0.7
+MSI,MSI Vector A16 HX,AMD Ryzen 9 8940HX,NVIDIA GeForce RTX 5070 Ti (Laptop),16.0,1000.0,1768.8,1768.22,-0.58
+Acer,Acer Swift X,Intel Core Ultra 7 155H,NVIDIA GeForce RTX 4060 (Laptop),32.0,1000.0,2043.8,2020.87,-22.93
+ASUS,ASUS Vivobook 14,Intel Core 5 120U,Intel Iris Xe Graphics G7 (80EU),40.0,1000.0,1988.8,1962.8,-26.0
+HP,HP OmniBook 5,AMD Ryzen AI 7 350,AMD Radeon 860M,16.0,2000.0,1868.8,1870.33,1.53
+Lenovo,Lenovo ThinkPad E14 Gen 6,AMD Ryzen 7 7735HS,AMD Radeon 680M,64.0,4000.0,3268.8,3248.76,-20.04
+Lenovo,Lenovo Legion Slim 5i / S5,Intel Core i7-13700H,"NVIDIA GeForce RTX 4060 (Laptop, 140W)",16.0,1000.0,1768.8,1762.54,-6.26
+HP,HP OMEN 16,Intel Core Ultra 9 285H,NVIDIA GeForce RTX 5070 (Laptop),64.0,1000.0,2628.8,2645.82,17.02
+HP,HP EliteBook 8 G1i,Intel Core Ultra 5 225U,Intel Graphics (4-Cores),16.0,512.0,1371.2,1390.48,19.28
+HP,HP ENVY x360 14,AMD Ryzen 7 8840HS,AMD Radeon 780M,16.0,1000.0,1708.8,1727.38,18.58
+Lenovo,Lenovo ThinkPad T16 Gen 4,Intel Core Ultra 5 228V,Intel Arc Graphics 130V,64.0,2000.0,2828.8,2805.47,-23.33
+Lenovo,Lenovo ThinkPad T14 Gen 6,Intel Core Ultra 5 225U,Intel Graphics (4-Cores),16.0,512.0,1411.2,1415.59,4.39
+HP,HP 17,AMD Ryzen 5 7530U,"AMD Radeon RX Vega 7 (R4000/5000, 15W)",64.0,2000.0,2867.8,2833.68,-34.12
+Lenovo,Lenovo ThinkBook 16 Gen 6,AMD Ryzen 7 7730U,"AMD Radeon RX Vega 8 (R4000/5000, 15W)",16.0,512.0,1571.2,1581.67,10.47
+Gigabyte,GIGABYTE GAMING A16 GA6H,Intel Core i7-13620H,NVIDIA GeForce RTX 4050 (Laptop),16.0,512.0,1571.2,1572.99,1.79
+Lenovo,Lenovo IdeaPad 3i,Intel Core i5-1135G7,Intel Iris Xe Graphics G7 (80EU),8.0,256.0,1148.0,1050.7,-97.3
+Dell,Dell 14 Plus,Intel Core Ultra 9 288V,Intel Arc Graphics 140V,32.0,4000.0,2628.8,2511.72,-117.08
+MSI,MSI Thin 15,Intel Core i7-13620H,"NVIDIA GeForce RTX 4050 (Laptop, 45W)",16.0,1000.0,1656.8,1678.15,21.35
+HP,HP Chromebook 14,Intel Processor N200,Intel UHD Graphics Xe 750 (32EU),8.0,0.0,1200.0,1017.51,-182.49
+Dell,Dell Inspiron 15 3530,Intel Core i5-1334U,Intel Iris Xe Graphics G7 (80EU),64.0,4000.0,3016.8,2941.52,-75.28
+MSI,MSI Crosshair 16 HX AI,Intel Core Ultra 7 255HX,NVIDIA GeForce RTX 5060 (Laptop),32.0,1000.0,2088.8,2092.97,4.17
+Lenovo,Lenovo ThinkPad T16 Gen 4,AMD Ryzen AI 7 PRO 350,AMD Radeon 860M,16.0,512.0,1571.2,1581.67,10.47
+Lenovo,"Lenovo Yoga Pro 7i Aura Edition (15"", Gen 11)",Intel Core Ultra 9 386H,NVIDIA GeForce RTX 5060 (Laptop),64.0,3000.0,3107.8,3079.79,-28.01
+HP,HP ZBook Fury G1i,Intel Core Ultra 7 255HX,NVIDIA RTX PRO 2000 Blackwell,32.0,1000.0,2088.8,2080.74,-8.06
+Dell,Dell Pro 16,AMD Ryzen 5 220,AMD Radeon 740M,8.0,256.0,1360.0,1347.06,-12.94
+HP,HP Victus 15,Intel Core i5-13420H,NVIDIA GeForce RTX 4050 (Laptop),48.0,2000.0,2496.8,2464.89,-31.91
+Lenovo,Lenovo IdeaPad 1,Intel Core i3-1315U,"Intel UHD Graphics (Alder Lake, 64EU)",24.0,1000.0,1616.8,1541.63,-75.17
+HP,HP ProBook 465 G11,AMD Ryzen 5 7535U,AMD Radeon 660M,64.0,1000.0,2628.8,2650.67,21.87
+HP,HP 15,Intel Core i5-1334U,Intel Iris Xe Graphics G7 (80EU),64.0,2000.0,2616.8,2647.54,30.74
+HP,HP 250 G9 / 255 G9,Intel Core i5-1335U,Intel Iris Xe Graphics G7 (80EU),16.0,2000.0,1656.8,1660.16,3.36
+Lenovo,Lenovo IdeaPad Slim 3 Chromebook,MediaTek Kompanio 520 (MT8186),ARM Mali-G52 2EE MC2,4.0,0.0,1220.0,1328.41,108.41
+LG,LG gram Book,Intel Core i5-1334U,Intel Iris Xe Graphics G7 (80EU),32.0,1000.0,1776.8,1767.04,-9.76
+HP,HP 15,Intel Core i3-N305,Intel UHD Graphics Xe 750 (32EU),16.0,512.0,1359.2,1356.82,-2.38
+HP,HP ZBook X G1i,Intel Core Ultra 9 285H,NVIDIA RTX PRO 2000 Blackwell,32.0,1000.0,2088.8,2078.72,-10.08
+Lenovo,Lenovo ThinkPad P1 Gen 8,Intel Core Ultra 9 285H,NVIDIA RTX PRO 2000 Blackwell,64.0,2000.0,2928.8,2921.28,-7.52
+Lenovo,Lenovo IdeaPad 1,AMD Ryzen 3 7320U,AMD Radeon 610M,8.0,256.0,1348.0,1001.09,-346.91
+Microsoft,Microsoft Surface Laptop,Qualcomm Snapdragon X Plus X1P-42-100,Qualcomm Snapdragon X Elite Adreno GPU,24.0,1000.0,1738.8,1672.99,-65.81
+Lenovo,Lenovo ThinkPad E16 Gen 1,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (80EU),16.0,1000.0,1468.8,1455.73,-13.07
+Dell,Dell Pro 14 Plus,Intel Core Ultra 7 155U,Intel Graphics (4-Cores),32.0,2000.0,2028.8,2024.81,-3.99
+HP,HP OmniBook 5,Intel Core Ultra 7 255U,Intel Graphics (4-Cores),16.0,2000.0,1668.8,1681.57,12.77
+HP,HP OmniBook X Flip,Intel Core Ultra 7 256V,Intel Arc Graphics 140V,16.0,1000.0,1668.8,1693.34,24.54
+HP,HP EliteBook Ultra 14 G1q,Qualcomm Snapdragon X Elite X1E-78-100,Qualcomm Snapdragon X Elite Adreno GPU,32.0,512.0,1831.2,1845.55,14.35
+Dell,Dell 15,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),20.0,2000.0,1736.8,1699.28,-37.52
+ASUS,ASUS Vivobook 14,Intel Core i3-1215U,"Intel UHD Graphics (Alder Lake, 64EU)",8.0,512.0,1251.2,1220.02,-31.18
+Lenovo,Lenovo V15 Gen 5,Intel Core 7 240H,"Intel UHD Graphics (Alder Lake, 64EU)",16.0,1000.0,1456.8,1452.04,-4.76
+ASUS,ASUS Zenbook A16 (UX3607),Qualcomm Snapdragon X (X1-26-100),Qualcomm SD X Adreno X1-45 1.7 TFLOPS,48.0,2000.0,2508.8,2412.74,-96.06
+HP,HP ZBook Fury G1i,Intel Core Ultra 9 285HX,NVIDIA RTX PRO 4000 Blackwell,192.0,4000.0,5888.8,5845.6,-43.2
+LG,LG gram 17,Intel Core Ultra 7 258V,Intel Arc Graphics 140V,32.0,3000.0,2518.8,2522.88,4.08
+Acer,Acer Aspire Go 15,Intel Core 3 N355,"Intel UHD Graphics (Alder Lake, 32EU)",8.0,640.0,1224.8,1194.62,-30.18
+Dell,Dell Pro 14 Plus,Intel Core Ultra 5 236V,Intel Arc Graphics 130V,16.0,256.0,1560.0,1541.38,-18.62
+Dell,Dell Inspiron 15 3535,AMD Ryzen 7 7730U,"AMD Radeon RX Vega 8 (R4000/5000, 15W)",32.0,1000.0,1976.8,1446.69,-530.11
+Lenovo,Lenovo Legion 7i,Intel Core Ultra 9 275HX,NVIDIA GeForce RTX 5060 (Laptop),32.0,1000.0,2088.8,2080.12,-8.68
+ASUS,ASUS ExpertBook B3 G2 (B3605),Intel Core Ultra 5 335,Intel Graphics (4-Cores),16.0,1000.0,1568.8,1520.46,-48.34
+Dell,Dell Inspiron 14 5440,Intel Core i5-1334U,Intel Iris Xe Graphics G7 (80EU),16.0,512.0,1411.2,1430.26,19.06
+ASUS,ASUS Vivobook S 16 OLED,Intel Core Ultra 9 285H,Intel Arc 140T,32.0,2000.0,2288.8,2259.31,-29.49
+Dell,Dell Pro 14,Intel Core Ultra 7 265U,Intel Graphics (4-Cores),64.0,2000.0,2668.8,2681.04,12.24
+Gigabyte,GIGABYTE GAMING A16 GA6H,Intel Core i7-13620H,NVIDIA GeForce RTX 4050 (Laptop),16.0,1000.0,1668.8,1688.93,20.13
+Lenovo,Lenovo IdeaPad Slim 5i,Intel Core Ultra 5 325,Intel Graphics (4-Cores),32.0,2000.0,1988.8,2024.37,35.57
+Acer,Acer Aspire 17,Intel Core i9-13900H,Intel Iris Xe Graphics G7 (96EU),32.0,1000.0,1827.8,1818.59,-9.21
+ASUS,ASUS ROG Flow Z13 GZ302,AMD Ryzen AI Max+ 395,AMD Radeon 8060S Graphics,128.0,1000.0,3930.8,3708.25,-222.55
+Lenovo,Lenovo ThinkBook 16 Gen 6,Intel Core i7-13700H,Intel Iris Xe Graphics G7 (96EU),16.0,2000.0,1668.8,1686.07,17.27
+ASUS,ASUS ExpertBook P3 G2 (PM3406),AMD Ryzen 7 260,AMD Radeon 780M,64.0,1000.0,2668.8,2673.54,4.74
+HP,HP ENVY x360 14,Intel Core 7 150U,Intel Iris Xe Graphics G7 (96EU),16.0,2000.0,1708.8,1734.25,25.45
+Lenovo,Lenovo ThinkBook 16 Gen 9,Intel Core Ultra 7 355,Intel Graphics (4-Cores),64.0,1000.0,2528.8,2489.16,-39.64
+ASUS,ASUS ROG Strix G16,AMD Ryzen 9 8940HX,NVIDIA GeForce RTX 5070 (Laptop),64.0,4000.0,3228.8,3263.86,35.06
+Gigabyte,GIGABYTE GAMING A16 GA6H,Intel Core i7-13620H,NVIDIA GeForce RTX 4050 (Laptop),24.0,1000.0,1828.8,1801.54,-27.26
+Dell,Dell XPS 16 (DA16260),Intel Core Ultra 7 355,Intel Graphics (4-Cores),64.0,4000.0,3028.8,3129.75,100.95
+Lenovo,Lenovo IdeaPad 1,Intel Core i5-1335U,Intel Iris Xe Graphics G7 (80EU),16.0,256.0,1308.0,1180.16,-127.84
+HP,HP Pavilion 14,Intel Core i7-1255U,Intel Iris Xe Graphics G7 (96EU),16.0,1000.0,1508.8,1510.48,1.68
+ASUS,ASUS VivoBook 15 F512,AMD Ryzen 3 3250U,AMD Radeon RX Vega 3,36.0,2000.0,2256.8,2189.67,-67.13
+Lenovo,Lenovo ThinkPad T14 Gen 4,Intel Core i5-1335U,Intel Iris Xe Graphics G7 (80EU),40.0,2000.0,2188.8,2194.03,5.23
+MSI,MSI Stealth A16 AI+,AMD Ryzen AI 9 HX 370,NVIDIA GeForce RTX 5060 (Laptop),32.0,2000.0,2288.8,2294.89,6.09
+Lenovo,Lenovo Slim 7,Intel Core i7-1360P,Intel Iris Xe Graphics G7 (96EU),16.0,4000.0,2108.8,2123.64,14.84
+Lenovo,Lenovo LOQ 15,Intel Core i5-12450H,"NVIDIA GeForce RTX 3050 (Laptop, 65W, 6GB)",16.0,1000.0,1656.8,1658.98,2.18
+ASUS,ASUS TUF Gaming A15,AMD Ryzen 7 7435HS,"NVIDIA GeForce RTX 3050 (Laptop, 95W)",8.0,512.0,1399.2,1391.28,-7.92
+HP,HP ZBook X G1i,Intel Core Ultra 9 285H,NVIDIA RTX PRO 2000 Blackwell,64.0,1000.0,2628.8,2628.63,-0.17
+Lenovo,Lenovo Yoga Slim 7,Qualcomm Snapdragon X Elite X1E-78-100,Qualcomm Snapdragon X Elite Adreno GPU,16.0,2000.0,1823.8,1817.37,-6.43
+HP,HP Victus 15,Intel Core i5-13420H,"NVIDIA GeForce RTX 3050 (Laptop, 6GB)",64.0,2000.0,2816.8,2825.83,9.03
+Lenovo,"Lenovo LOQ Essential (15ARP11, Gen 11)",AMD Ryzen 7 170,NVIDIA GeForce RTX 5060 (Laptop),16.0,512.0,1559.2,1560.06,0.86
+Lenovo,Lenovo LOQ 15,Intel Core i7-13650HX,NVIDIA GeForce RTX 5060 (Laptop),64.0,4000.0,3216.8,3240.98,24.18
+Apple,Apple MacBook Pro 16,Apple M3 Pro (12-core CPU),Apple M3 Pro GPU (18-core),18.0,512.0,1617.2,1597.67,-19.53
+ASUS,ASUS Vivobook 14,Intel Core i3-1215U,"Intel UHD Graphics (Alder Lake, 64EU)",40.0,1000.0,1988.8,1982.53,-6.27
+HP,HP 15,Intel Core i5-1235U,Intel Iris Xe Graphics G7 (80EU),16.0,512.0,1359.2,1379.16,19.96
+HP,HP ZBook X G1i,Intel Core Ultra 7 255H,Intel Arc 140T,32.0,1000.0,1988.8,1990.82,2.02
+Lenovo,Lenovo LOQ 15,Intel Core i5-12450HX,"NVIDIA GeForce RTX 2050 (Laptop, 65W)",64.0,8000.0,4016.8,3981.14,-35.66
+Lenovo,Lenovo LOQ 15,AMD Ryzen 5 7235HS,"NVIDIA GeForce RTX 4050 (Laptop, 105W)",16.0,512.0,1559.2,1560.89,1.69
+Acer,Acer Aspire 5,AMD Ryzen 5 5500U,"AMD Radeon RX Vega 7 (R4000/5000, 15W)",8.0,256.0,1348.0,1314.05,-33.95
+HP,HP 15,Intel Core i5-1335U,Intel Iris Xe Graphics G7 (80EU),32.0,1000.0,1776.8,1762.82,-13.98
+MSI,MSI Stealth 16 Studio,Intel Core i7-13700H,"NVIDIA GeForce RTX 4060 (Laptop, 105W)",32.0,1000.0,2088.8,2091.52,2.72
+HP,HP OmniBook X Flip,AMD Ryzen AI 5 340,AMD Radeon 840M,16.0,1000.0,1668.8,1705.67,36.87
+Dell,Dell Inspiron 15 3530,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),16.0,1000.0,1456.8,1406.68,-50.12
+Dell,Dell Inspiron 15 3530,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),64.0,2000.0,2616.8,2559.22,-57.58
+Lenovo,Lenovo Yoga Book 9i,Intel Core Ultra 9 285H,Intel Arc 140T,32.0,1000.0,2028.8,2018.06,-10.74
+MSI,MSI Vector GP68 HX,Intel Core i9-12900H,"NVIDIA GeForce RTX 4080 (Laptop, 175W)",32.0,1000.0,2088.8,2093.55,4.75
+MSI,MSI Stealth 16 AI+,Intel Core Ultra 9 386H,Intel Graphics (4-Cores),128.0,2000.0,4008.8,3638.59,-370.21
+Dell,Dell Inspiron 16 Plus 7640,Intel Core Ultra 7 155H,NVIDIA GeForce RTX 4050 (Laptop),32.0,1000.0,2088.8,2107.05,18.25
+Lenovo,Lenovo LOQ 15,Intel Core i7-13650HX,NVIDIA GeForce RTX 5060 (Laptop),32.0,1000.0,1976.8,1972.74,-4.06
+Acer,Acer TravelMate P4 Spin,Intel Core Ultra 5 225U,Intel Graphics (4-Cores),64.0,1000.0,2468.8,2482.16,13.36
+Dell,Dell Pro 14 Essential,AMD Ryzen AI 5 330,AMD Radeon 820M,16.0,512.0,1611.2,1604.85,-6.35
+Lenovo,Lenovo ThinkPad E14 Gen 7,Intel Core Ultra 5 228V,Intel Arc Graphics 130V,32.0,1000.0,2028.8,2013.86,-14.94
+Lenovo,Lenovo ThinkPad E16 Gen 3,Intel Core Ultra 7 256V,Intel Arc Graphics 140V,16.0,512.0,1571.2,1573.87,2.67
+HP,HP 15,Intel Core i7-1255U,Intel Iris Xe Graphics G7 (96EU),12.0,1000.0,1376.8,1254.72,-122.08
+HP,HP 250 G9 / 255 G9,Intel Core i3-1215U,"Intel UHD Graphics (Alder Lake, 64EU)",32.0,1000.0,1776.8,1739.0,-37.8
+HP,HP ENVY x360 13,AMD Ryzen 5 2500U,AMD Radeon RX Vega 10,8.0,256.0,1379.0,1336.55,-42.45
+Dell,Dell 15,Intel Core i5-1334U,Intel Iris Xe Graphics G7 (80EU),32.0,2000.0,1976.8,2016.39,39.59
+Dell,Dell Pro 16,Intel Core Ultra 5 225U,Intel Graphics (4-Cores),64.0,2000.0,2628.8,2646.45,17.65
+Lenovo,Lenovo IdeaPad Slim 5x,Qualcomm Snapdragon X2 Plus X2P-42-100,Qualcomm SD X Adreno X2-45 (Up to 0.91 GHz),32.0,1000.0,1867.8,1885.7,17.9
+Lenovo,Lenovo ThinkPad E16 Gen 1,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),24.0,2000.0,1828.8,1863.41,34.61
+Lenovo,Lenovo ThinkPad T14 Gen 2,Intel Core i7-1165G7,Intel Iris Xe Graphics G7 (96EU),48.0,1000.0,2148.8,2143.53,-5.27
+Alienware,Alienware 18 Area-51,Intel Core Ultra 9 275HX,NVIDIA GeForce RTX 5080 (Laptop),64.0,4000.0,3388.8,3391.35,2.55
+HP,HP ENVY x360 15,Intel Core Ultra 5 125U,Intel Graphics (4-Cores),8.0,512.0,1199.2,1219.21,20.01
+MSI,MSI Venture / VenturePro 17 AI,Intel Core Ultra 5 125H,Intel Arc (7-Cores),16.0,512.0,1610.2,1597.18,-13.02
+Acer,Acer TravelMate P2,Intel Core Ultra 5 115U,Intel Graphics (4-Cores),16.0,512.0,1359.2,1386.97,27.77
+Lenovo,Lenovo Yoga 7i 2-in-1,Intel Core Ultra 5 226V,Intel Arc Graphics 130V,16.0,2000.0,1908.8,1912.98,4.18
+HP,HP OmniBook 7,Intel Core 5 210H,Intel UHD Graphics Xe G4 (48EU),32.0,1000.0,1888.8,1861.93,-26.87
+ASUS,ASUS Vivobook 14,Intel Core i5-1334U,Intel Iris Xe Graphics G7 (80EU),16.0,2000.0,1708.8,1737.7,28.9
+HP,HP 14,Intel Processor N150,Intel UHD Graphics Xe (24EU),8.0,512.0,1151.2,1120.33,-30.87
+Lenovo,Lenovo IdeaPad 3i,Intel Core i3-1115G4,Intel UHD Graphics Xe G4 (48EU),8.0,512.0,459.0,914.98,455.98
+Apple,Apple MacBook Air 13,Apple M2 (10-core CPU),Apple M2 GPU (10-core),8.0,256.0,1288.0,1275.06,-12.94
+Microsoft,Microsoft Surface Laptop 7,Qualcomm Snapdragon X Elite X1E-80-100,Qualcomm Snapdragon X Elite Adreno GPU,32.0,512.0,1825.2,1822.03,-3.17
+Lenovo,Lenovo ThinkPad E14 Gen 5,Intel Core i5-1335U,Intel Iris Xe Graphics G7 (80EU),40.0,1000.0,1988.8,1955.54,-33.26
+HP,HP OmniBook 3,AMD Ryzen AI 5 330,AMD Radeon 820M,16.0,1000.0,1656.8,1672.6,15.8
+Dell,Alienware 18 Area-51,Intel Core Ultra 9 275HX,NVIDIA GeForce RTX 5080 (Laptop),32.0,1000.0,2148.8,2157.06,8.26
+Lenovo,Lenovo IdeaPad D330,Intel Celeron N4000,Intel UHD Graphics 600,4.0,0.0,903.0,1135.49,232.49
+Acer,Acer Chromebook 315,Intel Pentium Silver N6000,Intel UHD Graphics (Jasper Lake 32 EU),4.0,0.0,1068.0,1139.91,71.91
+HP,HP Spectre x360 14,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),16.0,1000.0,1493.8,1488.45,-5.35
+HP,HP OMEN 17,AMD Ryzen AI 9 365,NVIDIA GeForce RTX 5070 (Laptop),96.0,1000.0,3307.8,3293.57,-14.23
+HP,HP Chromebook 11MK G9 EE,Mediatek MT8183,ARM Mali-G72 MP3,4.0,0.0,1048.0,1260.81,212.81
+HP,HP 15,Intel Core i3-1315U,"Intel UHD Graphics (Alder Lake, 64EU)",64.0,2000.0,2616.8,2603.9,-12.9
+Acer,Acer Aspire Go 15,Intel Core 3 N355,"Intel UHD Graphics (Alder Lake, 32EU)",8.0,1000.0,1296.8,1237.41,-59.39
+Dell,Dell Latitude 13 3340,Intel Core i3-1215U,"Intel UHD Graphics (Alder Lake, 64EU)",8.0,256.0,1179.0,1203.91,24.91
+HP,HP 17,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),64.0,8000.0,3867.8,3840.49,-27.31
+HP,HP 250 G6,Intel Core i3-6006U,Intel HD Graphics 520,4.0,0.0,1268.0,1326.17,58.17
+Lenovo,Lenovo Yoga 7i 2-in-1,Intel Core Ultra 7 155U,Intel Graphics (4-Cores),16.0,2000.0,1668.8,1676.1,7.3
+HP,HP OMEN 16,Intel Core Ultra 9 285H,NVIDIA GeForce RTX 5070 (Laptop),48.0,1000.0,2308.8,2304.56,-4.24
+Lenovo,Lenovo ThinkPad L14 Gen 6,AMD Ryzen AI 7 PRO 350,AMD Radeon 860M,32.0,1000.0,2028.8,2010.29,-18.51
+ASUS,ASUS Vivobook 15 F1504,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),16.0,512.0,1359.2,1378.96,19.76
+Lenovo,"Lenovo Legion 7a (16"", Gen 11)",AMD Ryzen AI 9 HX 470,NVIDIA GeForce RTX 5060 (Laptop),64.0,2000.0,2928.8,2906.15,-22.65
+Lenovo,Lenovo ThinkPad T14 Gen 6,Intel Core Ultra 7 265U,Intel Graphics (4-Cores),32.0,512.0,1731.2,1770.44,39.24
+Samsung,Samsung Galaxy Book5 Pro,Intel Core Ultra 7 258V,Intel Arc Graphics 140V,32.0,512.0,1991.2,1953.58,-37.62
+Acer,Acer Nitro V 17 AI,AMD Ryzen AI 9 365,NVIDIA GeForce RTX 5070 (Laptop),32.0,1000.0,2027.8,2028.26,0.46
+HP,HP 15,Intel Core i3-1315U,"Intel UHD Graphics (Alder Lake, 64EU)",64.0,1000.0,2416.8,2432.33,15.53
+HP,HP EliteBook 8 G1i,Intel Core Ultra 7 255U,Intel Arc Graphics 140V,32.0,512.0,1891.2,1917.33,26.13
+Lenovo,Lenovo IdeaPad 1,Intel Core i5-1335U,Intel Iris Xe Graphics G7 (80EU),24.0,1000.0,1616.8,1572.25,-44.55
+Lenovo,Lenovo IdeaPad 1,Intel Core i5-1335U,Intel Iris Xe Graphics G7 (80EU),8.0,512.0,1199.2,1037.92,-161.28
+Lenovo,Lenovo ThinkPad T14s Gen 6,AMD Ryzen AI 7 PRO 350,AMD Radeon 860M,16.0,512.0,1611.2,1600.97,-10.23
+ASUS,ASUS ROG Strix G16,Intel Core i7-14650HX,NVIDIA GeForce RTX 5060 (Laptop),64.0,4000.0,3228.8,3263.87,35.07
+Acer,Acer Predator Helios Neo 14 AI,Intel Core Ultra 9 285H,NVIDIA GeForce RTX 5070 (Laptop),32.0,1000.0,2043.8,2083.21,39.41
+ASUS,ASUS ROG Strix G18 G815,Intel Core Ultra 9 275HX,NVIDIA GeForce RTX 5070 (Laptop),32.0,4000.0,2748.8,2735.37,-13.43
+Dell,Dell 15,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),32.0,4000.0,2376.8,2396.95,20.15
+HP,HP ENVY x360 15,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),16.0,2000.0,1656.8,1661.51,4.71
+HP,HP Elite mt645 G8,AMD Ryzen 3 7335U,AMD Radeon 660M,8.0,256.0,1400.0,1409.72,9.72
+HP,HP Victus 15,Intel Core i5-13420H,"NVIDIA GeForce RTX 3050 (Laptop, 6GB)",24.0,2000.0,2016.8,2029.88,13.08
+HP,HP 14,Intel Processor N150,Intel UHD Graphics Xe (24EU),32.0,4000.0,2328.8,2374.57,45.77
+HP,HP 15,Intel Core i3-1215U,"Intel UHD Graphics (Alder Lake, 64EU)",32.0,2000.0,1976.8,1964.3,-12.5
+ASUS,ASUS Vivobook 14,Intel Core i5-1334U,Intel Iris Xe Graphics G7 (80EU),16.0,1000.0,1508.8,1511.71,2.91
+HP,HP 17,AMD Ryzen 5 7430U,"AMD Radeon RX Vega 7 (R4000/5000, 15W)",16.0,512.0,1610.2,1610.41,0.21
+Lenovo,Lenovo ThinkPad P16 Gen 3,Intel Core Ultra 7 255HX,NVIDIA RTX PRO 2000 Blackwell,64.0,1000.0,2628.8,2629.56,0.76
+HP,HP ENVY 17,Intel Core i7-13700H,Intel Iris Xe Graphics G7 (96EU),16.0,1000.0,1607.8,1541.46,-66.34
+ASUS,ASUS ROG Zephyrus Duo GX651,Intel Core Ultra 9 386H,NVIDIA GeForce RTX 5090 (Laptop),64.0,2000.0,2928.8,2920.62,-8.18
+Lenovo,Lenovo IdeaPad Slim 3/3i,Intel Core i7-13620H,"Intel UHD Graphics (Alder Lake, 64EU)",8.0,1000.0,1378.8,1348.28,-30.52
+ASUS,ASUS Vivobook 14,Intel Core i5-1334U,Intel Iris Xe Graphics G7 (80EU),24.0,2000.0,1868.8,1921.47,52.67
+Dell,Dell Pro Max 16 Premium (MA16250),Intel Core Ultra 7 255H,NVIDIA RTX PRO 1000 Blackwell,64.0,4000.0,3328.8,3312.98,-15.82
+HP,HP 14,Intel Celeron N4120,Intel UHD Graphics 600,8.0,0.0,1100.0,862.49,-237.51
+LG,LG gram 15,Intel Core Ultra 7 155H,Intel Arc (8-Cores),32.0,512.0,1879.2,1841.7,-37.5
+Lenovo,Lenovo V15 Gen 4,Intel Core i3-1315U,"Intel UHD Graphics (Alder Lake, 64EU)",16.0,512.0,1359.2,1154.71,-204.49
+HP,HP ENVY 16,Intel Core i7-13700H,Intel Arc A370M,16.0,1000.0,1768.8,1767.95,-0.85
+Apple,Apple MacBook Pro 16 (M5),"Apple M5 Max (18-core CPU, 40c GPU)",Apple M5 Max (40-core GPU),36.0,4000.0,2674.8,2660.21,-14.59
+HP,HP 14,Intel Celeron N4500,Intel UHD Graphics (Jasper Lake 16 EU),4.0,0.0,1020.0,953.63,-66.37
+ASUS,ASUS ROG Strix G16,Intel Core i9-13980HX,"NVIDIA GeForce RTX 4060 (Laptop, 140W)",48.0,8000.0,3708.8,3669.53,-39.27
+Lenovo,Lenovo LOQ 17IRX10,Intel Core i7-13650HX,NVIDIA GeForce RTX 5060 (Laptop),64.0,8000.0,4067.8,4056.41,-11.39
+Acer,Acer Aspire 5,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),16.0,4000.0,2056.8,2037.32,-19.48
+Dell,Dell Pro 14 Plus,AMD Ryzen AI 5 PRO 340,AMD Radeon 840M,16.0,512.0,1611.2,1604.92,-6.28
+Lenovo,Lenovo ThinkPad P16 Gen 3,Intel Core Ultra 9 275HX,NVIDIA RTX PRO 4000 Blackwell,192.0,8000.0,6688.8,7042.4,353.6
+ASUS,ASUS Chromebook CM14,MediaTek Kompanio 520 (MT8186),ARM Mali-G72 MP3,4.0,0.0,1220.0,1331.87,111.87
+HP,HP 15,Intel Core i5-1334U,Intel Iris Xe Graphics G7 (80EU),16.0,1000.0,1456.8,1452.63,-4.17
+MSI,MSI Thin A15,AMD Ryzen 5 7535HS,"NVIDIA GeForce RTX 4050 (Laptop, 45W)",32.0,2000.0,2176.8,2203.03,26.23
+Lenovo,Lenovo Legion 5i,Intel Core Ultra 9 275HX,NVIDIA GeForce RTX 5070 (Laptop),32.0,1000.0,2058.8,2075.15,16.35
+ASUS,ASUS ExpertBook P1,AMD Ryzen 7 7735HS,AMD Radeon 680M,16.0,512.0,1559.2,1541.6,-17.6
+ASUS,ASUS Vivobook 14,Intel Core 5 120U,Intel Iris Xe Graphics G7 (80EU),24.0,2000.0,1868.8,1921.47,52.67
+Lenovo,Lenovo LOQ 15,Intel Core i5-12450HX,"NVIDIA GeForce RTX 2050 (Laptop, 65W)",64.0,4000.0,3216.8,3228.66,11.86
+HP,HP 17,Intel Core 7 150U,Intel Iris Xe Graphics G7 (96EU),32.0,1000.0,1827.8,1828.62,0.82
+HP,HP 15,Intel Core i3-1215U,"Intel UHD Graphics (Alder Lake, 64EU)",8.0,256.0,1148.0,1148.94,0.94
+HP,HP EliteBook 8 G1i,Intel Core Ultra 7 258V,Intel Arc Graphics 140V,32.0,1000.0,2028.8,2002.33,-26.47
+HP,HP 15,Intel Core i7-1355U,Intel Iris Xe Graphics G7 (96EU),32.0,1000.0,1776.8,1762.82,-13.98
+ASUS,ASUS TUF Gaming A16 FA607,AMD Ryzen 7 7445HS,"NVIDIA GeForce RTX 4050 (Laptop, 140W)",64.0,4000.0,3228.8,3265.96,37.16
+ASUS,ASUS TUF Gaming A16 FA607,AMD Ryzen 7 7445HS,"NVIDIA GeForce RTX 4050 (Laptop, 140W)",32.0,2000.0,2188.8,2213.27,24.47
+ASUS,ASUS ExpertBook B5,Intel Core Ultra 7 155H,Intel Arc (8-Cores),32.0,1000.0,1988.8,1962.78,-26.02
+Acer,Acer Nitro 5,AMD Ryzen 7 6800H,"NVIDIA GeForce RTX 3070 Ti (Laptop, 150W)",16.0,1000.0,1656.8,1683.1,26.3
+HP,HP OMEN 16,AMD Ryzen 7 6800H,"NVIDIA GeForce RTX 3060 (Laptop, 140W)",64.0,2000.0,2831.8,2845.09,13.29
+Lenovo,Lenovo Legion 5i,Intel Core i7-14700HX,NVIDIA GeForce RTX 5060 (Laptop),64.0,2500.0,2998.8,2984.2,-14.6
+HP,HP EliteBook 6 G1i,Intel Core Ultra 7 255U,Intel Graphics (4-Cores),32.0,1000.0,1807.8,1793.8,-14.0
+HP,HP OMEN 17,AMD Ryzen AI 9 365,NVIDIA GeForce RTX 5060 (Laptop),64.0,2000.0,2389.0,2874.88,485.88
+ASUS,ASUS TUF Gaming A16,AMD Ryzen 9 270,NVIDIA GeForce RTX 5070 (Laptop),32.0,2000.0,2188.8,2209.34,20.54
+MSI,MSI Claw,Intel Core Ultra 7 155H,Intel Arc (8-Cores),16.0,1000.0,1498.8,1759.27,260.47
+HP,HP OMEN 16,Intel Core Ultra 9 285H,NVIDIA GeForce RTX 5070 (Laptop),16.0,1000.0,1668.8,1684.65,15.85
+HP,HP 15,Intel Core i3-N305,Intel UHD Graphics Xe 750 (32EU),32.0,2000.0,1976.8,1982.05,5.25
+MSI,MSI Thin 15,Intel Core i5-13420H,"NVIDIA GeForce RTX 3050 (Laptop, 45W)",16.0,512.0,1559.2,1564.22,5.02
+Lenovo,Lenovo V14 Gen 4,Intel Core i7-13620H,"Intel UHD Graphics (Alder Lake, 64EU)",16.0,256.0,1360.0,1398.75,38.75
+HP,HP OMEN 17,AMD Ryzen AI 9 365,NVIDIA GeForce RTX 5070 (Laptop),16.0,512.0,1610.2,1603.05,-7.15
+Acer,Acer Aspire Go 15,Intel Core 7 150U,Intel Iris Xe Graphics G7 (96EU),32.0,1000.0,1776.8,1735.24,-41.56
+Lenovo,Lenovo ThinkPad T14s Gen 6,Intel Core Ultra 7 268V,Intel Arc Graphics 140V,32.0,512.0,1931.2,1930.5,-0.7
+HP,HP 15,AMD Ryzen 7 7730U,"AMD Radeon RX Vega 8 (R4000/5000, 15W)",64.0,4000.0,3216.8,3156.53,-60.27
+Acer,Acer Aspire Go 15,AMD Ryzen 5 7520U,AMD Radeon 610M,8.0,1000.0,1496.8,1472.37,-24.43
+Lenovo,Lenovo Yoga 7i,Intel Core i7-1360P,Intel Iris Xe Graphics G7 (96EU),16.0,1000.0,1568.8,1510.67,-58.13
+Lenovo,Lenovo IdeaPad 1,Intel Celeron N4500,Intel UHD Graphics (Jasper Lake 16 EU),12.0,0.0,1228.0,1060.44,-167.56
+Dell,Dell Pro 14,AMD Ryzen 5 220,AMD Radeon 740M,16.0,256.0,1560.0,1548.82,-11.18
+Acer,Acer TravelMate P2,Intel Core Ultra 5 125H,Intel Arc (7-Cores),16.0,512.0,1559.2,1533.06,-26.14
+Lenovo,Lenovo LOQ 15,AMD Ryzen 5 7235HS,"NVIDIA GeForce RTX 4050 (Laptop, 105W)",12.0,512.0,1479.2,1328.4,-150.8
+Dell,Dell Inspiron 15 3535,AMD Ryzen 7 7730U,"AMD Radeon RX Vega 8 (R4000/5000, 15W)",24.0,2000.0,939.0,1146.59,207.59
+ASUS,ASUS Vivobook 14,Intel Core 5 120U,Intel Iris Xe Graphics G7 (80EU),12.0,512.0,1331.2,1247.44,-83.76
+ASUS,ASUS Zenbook S 16,AMD Ryzen AI 9 465,AMD Radeon 880M,24.0,1000.0,1928.8,1834.76,-94.04
+HP,HP 14,Intel Processor N150,Intel UHD Graphics Xe (24EU),32.0,0.0,1580.0,1442.03,-137.97
+HP,HP 15,Intel Core i5-1335U,Intel Iris Xe Graphics G7 (80EU),16.0,2000.0,1656.8,1660.16,3.36
+ASUS,ASUS ROG Zephyrus Duo GX651,Intel Core Ultra 9 386H,NVIDIA GeForce RTX 5070 Ti (Laptop),64.0,2000.0,2928.8,2920.62,-8.18
+Lenovo,Lenovo IdeaPad 1,Intel Celeron N4500,Intel UHD Graphics (Jasper Lake 16 EU),8.0,0.0,1148.0,811.52,-336.48
+Lenovo,Lenovo ThinkPad T14 Gen 6,AMD Ryzen AI 7 PRO 350,AMD Radeon 860M,64.0,2000.0,2868.8,2851.95,-16.85
+HP,HP OMEN 17,AMD Ryzen AI 9 365,NVIDIA GeForce RTX 5070 (Laptop),64.0,1000.0,2667.8,2696.27,28.47
+HP,HP OmniBook 5,Intel Core Ultra 7 255U,Intel Graphics (4-Cores),16.0,512.0,1371.2,1378.83,7.63
+HP,HP EliteBook X Flip G1i,Intel Core Ultra 7 268V,Intel Arc Graphics 140V,32.0,1000.0,2028.8,2002.33,-26.47
+Lenovo,Lenovo Legion Pro 5i,Intel Core Ultra 7 255HX,NVIDIA GeForce RTX 5070 (Laptop),48.0,8000.0,3808.8,3758.18,-50.62

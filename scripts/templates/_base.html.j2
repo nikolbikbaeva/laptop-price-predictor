@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ description }}">
+  <title>{{ title }}</title>
+  <style>
+    :root { --ink:#16182a; --muted:#565b72; --line:#e0e2ec; --accent:#5b3fd6; --teal:#0f7f6f; --amber:#b5660f; --paper:#f5f5fa; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    a { color:var(--accent); text-underline-offset:3px; }
+    header { background:#1d1640; color:white; padding:52px 28px 42px; }
+    .wrap { max-width:1180px; margin:auto; }
+    .eyebrow { margin:0 0 12px; color:#c9bdff; font-size:13px; letter-spacing:.12em; text-transform:uppercase; font-weight:650; }
+    h1 { font-size:clamp(30px,4vw,46px); line-height:1.18; letter-spacing:-.035em; margin:0 0 16px; }
+    header p { max-width:800px; color:#dcd6f5; margin:0; }
+    .header-note { font-size:13px; margin-top:18px; }
+    nav { background:white; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:5; }
+    nav .wrap { display:flex; gap:22px; flex-wrap:wrap; padding:14px 24px; }
+    nav a { font-size:14px; text-decoration:none; font-weight:600; }
+    main { padding:28px 24px 60px; }
+    section { margin:0 0 28px; scroll-margin-top:64px; }
+    .panel { border:1px solid var(--line); border-radius:12px; padding:28px; background:white; }
+    h2 { font-size:25px; line-height:1.3; letter-spacing:-.025em; margin:0 0 12px; }
+    h3 { font-size:18px; line-height:1.4; margin:24px 0 8px; }
+    p { margin:0 0 14px; }
+    .intro { color:var(--muted); max-width:920px; }
+    .metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-bottom:24px; }
+    .metric { background:white; border:1px solid var(--line); border-radius:10px; padding:20px; }
+    .metric strong { display:block; font-size:30px; letter-spacing:-.035em; line-height:1.25; }
+    .metric span { font-size:13px; color:var(--muted); }
+    .findings { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .finding { border-top:3px solid var(--accent); padding-top:14px; }
+    .finding h3 { margin:0 0 8px; }
+    .finding p { margin:0; font-size:15px; color:var(--muted); }
+    .note { padding:15px 18px; background:#f0edff; border-left:3px solid var(--accent); margin:18px 0; font-size:14px; }
+    .review { background:#fff6e8; border-color:var(--amber); }
+    .chart { width:100%; min-width:0; margin:14px 0; overflow-x:auto; }
+    .chart .plotly-graph-div { width:100% !important; min-width:700px; }
+    .caption { color:var(--muted); font-size:14px; margin:10px 0 18px; }
+    .table-scroll { overflow-x:auto; margin:16px 0; border:1px solid var(--line); border-radius:7px; }
+    table { border-collapse:collapse; width:100%; font-size:14px; }
+    th { background:#efeff7; text-align:left; color:#2a2d48; font-weight:650; }
+    th,td { padding:11px 13px; border-bottom:1px solid #eaebf2; vertical-align:top; }
+    tbody tr:last-child td { border-bottom:0; }
+    tbody tr:nth-child(even) { background:#fbfbfd; }
+    tr.selected td { background:#eaf7f3; font-weight:650; }
+    .numeric { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .subtle { color:var(--muted); font-size:13px; }
+    code { font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace; background:#eeeef6; padding:2px 5px; border-radius:4px; overflow-wrap:anywhere; }
+    pre { padding:17px; overflow:auto; background:#1d1640; color:#ece8ff; border-radius:7px; font-size:14px; }
+    pre code { background:transparent; color:inherit; padding:0; white-space:pre; }
+    details { margin:18px 0; } summary { cursor:pointer; color:var(--accent); font-weight:650; }
+    input { border:1px solid #c4c7d9; border-radius:6px; padding:10px 12px; background:white; color:var(--ink); font:inherit; width:100%; max-width:420px; }
+    input:focus { outline:3px solid #d9d1ff; outline-offset:1px; }
+    th[data-sort] { cursor:pointer; user-select:none; } th[data-sort]::after { content:" ↕"; color:#9a9db3; }
+    footer { color:var(--muted); font-size:13px; padding:0 24px 40px; }
+    @media (max-width:820px) { .metrics { grid-template-columns:repeat(2,minmax(0,1fr)); } .findings { grid-template-columns:1fr; } .panel { padding:20px; } }
+  </style>
+  <script>{{ plotly_js | safe }}</script>
+</head>
+<body>
+<header><div class="wrap">
+  <p class="eyebrow">{{ eyebrow }}</p>
+  <h1>{{ title }}</h1>
+  <p>{{ lead }}</p>
+  <p class="header-note">{{ header_note }}</p>
+</div></header>
+<nav><div class="wrap">{% for anchor, label in nav %}<a href="#{{ anchor }}">{{ label }}</a>{% endfor %}</div></nav>
+<main><div class="wrap">
+{% block content %}{% endblock %}
+</div></main>
+<footer><div class="wrap">Laptop Price Predictor · Team 3 · generated {{ generated }} · Python {{ versions.python }}, pandas {{ versions.pandas }}{% if versions["scikit-learn"] %}, scikit-learn {{ versions["scikit-learn"] }}{% endif %}, Plotly {{ versions.plotly }}</div></footer>
+<script>
+  // Sortable tables: click a header with data-sort.
+  document.querySelectorAll("table").forEach(function (table) {
+    table.querySelectorAll("th[data-sort]").forEach(function (th, col) {
+      th.addEventListener("click", function () {
+        var body = table.tBodies[0], rows = Array.from(body.rows);
+        var asc = th.dataset.dir !== "asc"; th.dataset.dir = asc ? "asc" : "desc";
+        var idx = Array.from(th.parentNode.children).indexOf(th);
+        rows.sort(function (a, b) {
+          var x = a.cells[idx].dataset.v || a.cells[idx].textContent, y = b.cells[idx].dataset.v || b.cells[idx].textContent;
+          var nx = parseFloat(x), ny = parseFloat(y);
+          var c = (!isNaN(nx) && !isNaN(ny)) ? nx - ny : x.localeCompare(y);
+          return asc ? c : -c;
+        });
+        rows.forEach(function (r) { body.appendChild(r); });
+      });
+    });
+  });
+  // Search filter: <input data-filter="tableId">
+  document.querySelectorAll("input[data-filter]").forEach(function (input) {
+    input.addEventListener("input", function () {
+      var q = input.value.toLowerCase();
+      document.querySelectorAll("#" + input.dataset.filter + " tbody tr").forEach(function (r) {
+        r.style.display = r.textContent.toLowerCase().indexOf(q) >= 0 ? "" : "none";
+      });
+    });
+  });
+</script>
+</body>
+</html>

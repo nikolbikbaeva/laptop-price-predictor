@@ -1,0 +1,83 @@
+{% extends "_base.html.j2" %}
+{% block content %}
+<section id="overview">
+  <div class="metrics">
+    <div class="metric"><strong>{{ "{:,}".format(s.rows_used) }}</strong><span>laptops after cleaning ({{ "{:,}".format(s.raw_rows) }} rows in the file)</span></div>
+    <div class="metric"><strong>{{ s.brands }}</strong><span>brands</span></div>
+    <div class="metric"><strong>{{ s.models }}</strong><span>distinct laptop models</span></div>
+    <div class="metric"><strong>{{ "{:,.0f}".format(s.median) }}</strong><span>median price (range {{ "{:,.0f}".format(s.min) }} – {{ "{:,.0f}".format(s.max) }})</span></div>
+  </div>
+  <div class="panel">
+    <h2>Key findings</h2>
+    <div class="findings">
+      {% for f in findings %}<div class="finding"><h3>{{ f[0] }}</h3><p>{{ f[1] }}</p></div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="quality" class="panel">
+  <h2>1. Data quality</h2>
+  <p class="intro">Before modeling we check for empty rows, impossible values and duplicates. Nothing is filled in or invented: problem rows are listed and left out.</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Check</th><th class="numeric">Rows</th><th>Decision</th></tr></thead>
+    <tbody>{% for r in quality %}<tr><td>{{ r[0] }}</td><td class="numeric">{{ r[1] }}</td><td>{{ r[2] }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <div class="note review">The source does not state the currency of <code>Price</code>. All prices are treated as USD and should be read as "price units".</div>
+</section>
+
+<section id="price" class="panel">
+  <h2>2. The target: price</h2>
+  <p class="intro">Prices are right-skewed: most laptops cost between {{ "{:,.0f}".format(s.q1) }} and {{ "{:,.0f}".format(s.q3) }}, but a few gaming and workstation laptops reach {{ "{:,.0f}".format(s.max) }}. The mean ({{ "{:,.0f}".format(s.mean) }}) is pulled up by these, so the median is the better "typical" price. Taking the logarithm makes the distribution much more symmetric — this is why the models predict log(price).</p>
+  <div class="chart">{{ charts.price_hist | safe }}</div>
+  <div class="chart">{{ charts.log_hist | safe }}</div>
+  <p class="caption">Hover over a bar for the count. Drag to zoom, double-click to reset.</p>
+</section>
+
+<section id="brands" class="panel">
+  <h2>3. Brands</h2>
+  <p class="intro">HP and Lenovo make up more than half of the data. Small brands have only a few laptops, so their typical price is uncertain.</p>
+  <div class="chart">{{ charts.brand_count | safe }}</div>
+  <div class="chart">{{ charts.brand_box | safe }}</div>
+  <p class="caption">Box plot: the line is the median, the box holds the middle 50% of laptops, dots are unusual prices.</p>
+</section>
+
+<section id="specs" class="panel">
+  <h2>4. Specs and price</h2>
+  <p class="intro">Memory is the clearest signal: the median price rises with almost every RAM step. Storage and a dedicated graphics card also go with higher prices.</p>
+  <div class="chart">{{ charts.ram_box | safe }}</div>
+  <div class="chart">{{ charts.ssd_box | safe }}</div>
+  <div class="chart">{{ charts.gpu_box | safe }}</div>
+  <div class="chart">{{ charts.cpu_box | safe }}</div>
+  <p class="caption">CPU tier is created by us from the free-text CPU name (1 = basic, 9 = top). See <code>scripts/common.py</code>.</p>
+</section>
+
+<section id="relationships" class="panel">
+  <h2>5. Relationships</h2>
+  <p class="intro">Correlation with log(price), from +1 (rise together) to −1 (move in opposite directions). Correlation is not causation, and features are linked with each other (gaming laptops have more RAM <em>and</em> a dedicated GPU).</p>
+  <div class="chart">{{ charts.corr | safe }}</div>
+  <div class="chart">{{ charts.scatter | safe }}</div>
+</section>
+
+<section id="columns" class="panel">
+  <h2>6. Column guide</h2>
+  <p class="intro">All {{ columns|length }} columns of the original file. Search to find a column.</p>
+  <input type="search" placeholder="Search columns…" data-filter="colTable" aria-label="Search columns">
+  <div class="table-scroll"><table id="colTable">
+    <thead><tr><th data-sort>Column</th><th data-sort>Type</th><th data-sort class="numeric">Missing / zero</th><th data-sort class="numeric">Distinct</th><th>Example</th><th>Meaning</th><th>Used by model</th></tr></thead>
+    <tbody>{% for c in columns %}<tr><td><code>{{ c.name }}</code></td><td>{{ c.type }}</td><td class="numeric" data-v="{{ c.missing }}">{{ c.missing }}</td><td class="numeric" data-v="{{ c.distinct }}">{{ c.distinct }}</td><td>{{ c.example }}</td><td>{{ c.meaning }}</td><td>{{ c.used }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+</section>
+
+<section id="limits" class="panel">
+  <h2>7. Limitations</h2>
+  <ul>
+    <li>The same laptop model appears many times with different RAM / storage ({{ s.models }} models for {{ "{:,}".format(s.rows_used) }} rows). A random train/test split is therefore optimistic; the model report adds a check on unseen models.</li>
+    <li>Prices are scraped listings at one point in time, not what buyers paid.</li>
+    <li>CPU and GPU names are free text; our tiers are a simplification.</li>
+    <li>The currency is not labelled.</li>
+  </ul>
+  <details><summary>How to regenerate this report</summary>
+  <pre><code>python scripts/eda.py
+python scripts/eda.py --input dat/laptops/laptop_scrap_data.csv --output reports/laptops_eda.html</code></pre></details>
+</section>
+{% endblock %}
