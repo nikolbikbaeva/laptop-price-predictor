@@ -40,7 +40,7 @@ revoke all on public.demo_orders, public.demo_messages from anon, authenticated;
 grant select, insert on public.demo_orders, public.demo_messages to anon, authenticated;
 grant update (status) on public.demo_orders to anon, authenticated;
 
--- anti-spam: at most 120 new demo rows per minute per table across everyone
+-- anti-spam: at most & 120 new demo rows per minute per table across everyone
 create function public.limit_demo() returns trigger
 language plpgsql security definer set search_path = '' as $$
 declare n int;
