@@ -15,7 +15,7 @@
   },
   "files": {
     "laptop_scrap_data.csv": "Original file, preserved byte for byte",
-    "laptops_starter.csv": "Five simple input columns and the target, for first exercises (empty rows removed, nothing else changed)",
+    "laptops_starter.csv": "Five simple input columns and the target, for the first exercises (empty rows removed, nothing else changed)",
     "data_description.txt": "Column guide written by the team"
   },
   "starter_column_mapping": {
