@@ -111,4 +111,4 @@ Nothing is imputed. The source does not label the currency of `Price`; it is tre
 - Scores apply to this scraped dataset at one point in time, not to the current market or to used laptops.
 - The currency is not labelled.
 - Rare, expensive configurations have the largest errors because few similar laptops exist in the data.
-- No hyper-parameter search was done; settings are fixed and simple.
+- No hyper-parameter search was done; settings are fixed & simple.
