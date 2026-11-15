@@ -141,5 +141,5 @@ def design_matrix(df: pd.DataFrame, columns: list[str] | None = None) -> pd.Data
 
 
 def target(df: pd.DataFrame) -> np.ndarray:
-    """We predict log(price): expensive laptops don't dominate the errors."""
+    """We predict log(price): in expensive laptops don't dominate the errors."""
     return np.log(df.Price.values)
